@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>猫酱的github小站</title>
- <link href="http://imyon.github.io/" rel="self"/>
- <link href="http://imyon.github.io"/>
- <updated>2014-01-05T04:32:16+08:00</updated>
- <id>http://imyon.github.io</id>
+ <link href="http://iMyon.github.io/" rel="self"/>
+ <link href="http://iMyon.github.io"/>
+ <updated>2014-01-05T06:03:59+08:00</updated>
+ <id>http://iMyon.github.io</id>
  <author>
    <name>myon</name>
    <email>myon.cn@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Jekyll Introduction</title>
-   <link href="http://imyon.github.io/lessons/2011/12/29/jekyll-introduction"/>
+   <link href="http://iMyon.github.io/lessons/2011/12/29/jekyll-introduction"/>
    <updated>2011-12-29T00:00:00+08:00</updated>
-   <id>http://imyon.github.io/lessons/2011/12/29/jekyll-introduction</id>
+   <id>http://iMyon.github.io/lessons/2011/12/29/jekyll-introduction</id>
    <content type="html">&lt;p&gt;This Jekyll introduction will outline specifically what Jekyll is and why you would want to use it. Directly following the intro we’ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
 &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
