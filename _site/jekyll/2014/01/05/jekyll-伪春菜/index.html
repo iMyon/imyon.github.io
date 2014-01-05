@@ -15,6 +15,10 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+	<!--添加代码高亮-->
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+    <link href="/assets/themes/twitter/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="/assets/themes/twitter/google-code-prettify/prettify.js"></script>
     <!-- Le styles -->
 	<link href="favicon.ico" type="image/x-icon" rel=icon>
     <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +35,6 @@
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-	<script src="http://code.jquery.com/jquery.min.js"></script>
 
   </head>
 
@@ -116,16 +119,16 @@
 <p>我的项目目录在<code>～/github/imyon.github.io/</code></p>
 
 <pre><code>$ cd ～/github/imyon.github.io/
-$ git submodule add https://github.com/DrayChou/ukagaka/</code></pre>
+$ git clone https://github.com/DrayChou/ukagaka/</code></pre>
 
 <h3 id="wccjs">修改wcc.js文件</h3>
 
 <p>进入伪春菜目录：</p>
 
 <pre><code>$ cd ukagaka
-$vim wcc.js</code></pre>
+$ vim wcc.js;</code></pre>
 
-<p>搜索<code>http_base</code>修改该行为：</p>
+<p>搜索<code>http_base</code>修改该行为：;</p>
 <div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>http_base</span> <span class='o'>=</span> <span class='s2'>&quot;/ukagaka/&quot;</span><span class='p'>;</span>
 </code></pre></div>
 <h2 id="_2">引入</h2>
@@ -305,4 +308,16 @@ var duoshuoQuery = {short_name:"myon"};
 	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>
+<!--代码高亮-->
+<script type="text/javascript">
+  $(function(){
+    $("pre").addClass("prettyprint linenums");
+    prettyPrint();
+    $('.entry a').each(function(){
+      if($(this).attr("href").indexOf("heiniuhaha") == -1){
+        $(this).attr("target", "_blank");
+      }
+    })
+  });
+</script>
 

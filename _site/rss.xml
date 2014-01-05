@@ -5,8 +5,8 @@
         <description>某半靈的面包 - myon</description>
         <link>http://iMyon.github.io</link>
         <link>http://iMyon.github.io</link>
-        <lastBuildDate>2014-01-05T19:31:05+08:00</lastBuildDate>
-        <pubDate>2014-01-05T19:31:05+08:00</pubDate>
+        <lastBuildDate>2014-01-05T20:19:19+08:00</lastBuildDate>
+        <pubDate>2014-01-05T20:19:19+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -19,16 +19,16 @@
 &lt;p&gt;我的项目目录在&lt;code&gt;～/github/imyon.github.io/&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cd ～/github/imyon.github.io/
-$ git submodule add https://github.com/DrayChou/ukagaka/&lt;/code&gt;&lt;/pre&gt;
+$ git clone https://github.com/DrayChou/ukagaka/&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;wccjs&quot;&gt;修改wcc.js文件&lt;/h3&gt;
 
 &lt;p&gt;进入伪春菜目录：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cd ukagaka
-$vim wcc.js&lt;/code&gt;&lt;/pre&gt;
+$ vim wcc.js;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;搜索&lt;code&gt;http_base&lt;/code&gt;修改该行为：&lt;/p&gt;
+&lt;p&gt;搜索&lt;code&gt;http_base&lt;/code&gt;修改该行为：;&lt;/p&gt;
 &lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;javascript&#39;&gt;&lt;span class=&#39;kd&#39;&gt;var&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;http_base&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;/ukagaka/&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;_2&quot;&gt;引入&lt;/h2&gt;

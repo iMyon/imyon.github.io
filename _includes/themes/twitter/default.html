@@ -14,6 +14,10 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+	<!--添加代码高亮-->
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+    <link href="{{ ASSET_PATH }}/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="{{ ASSET_PATH }}/google-code-prettify/prettify.js"></script>
     <!-- Le styles -->
 	<link href="favicon.ico" type="image/x-icon" rel=icon>
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +34,6 @@
     <!-- atom & rss feed -->
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-	<script src="http://code.jquery.com/jquery.min.js"></script>
 
   </head>
 
@@ -77,3 +80,15 @@
 	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>
+<!--代码高亮-->
+<script type="text/javascript">
+  $(function(){
+    $("pre").addClass("prettyprint linenums");
+    prettyPrint();
+    $('.entry a').each(function(){
+      if($(this).attr("href").indexOf("heiniuhaha") == -1){
+        $(this).attr("target", "_blank");
+      }
+    })
+  });
+</script>
