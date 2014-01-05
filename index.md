@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: 半分虚幻的庭师
+(*tagline: Supporting tagline*)
 ---
 {% include JB/setup %}
 
