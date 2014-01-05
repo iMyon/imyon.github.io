@@ -15,7 +15,8 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+	<link href="favicon.ico" type="image/x-icon" rel=icon>
+    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
@@ -29,11 +30,12 @@
     <!-- atom & rss feed -->
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+	<script src="http://code.jquery.com/jquery.min.js"></script>
 
   </head>
 
   <body>
-    <div class="navbar">
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container-narrow">
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
@@ -46,21 +48,32 @@
       </div>
     </div>
 
-    <div class="container-narrow">
+    <div class="container-narrow row-fluid" id="content">
 
-      <div class="content">
+      <div class="content main span9">
         {{ content }}
       </div>
+	  <div class="span3 sidebar">
+		  <h3>导航</h3>
+          <ul class="nav nav-tabs nav-stacked">
+			  <li><a href="{{ HOME_PATH }}">首页</a></li>
+            {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include JB/pages_list %}
+          </ul>
+	  </div>
       <hr>
-      <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
 
     </div>
+  <footer id="footer">
+	<p class="text-center">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+	  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+	  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+	</p>
+  </footer>
 
     {% include JB/analytics %}
+	<!--引入伪春菜-->
+	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>

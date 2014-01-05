@@ -16,7 +16,8 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+	<link href="favicon.ico" type="image/x-icon" rel=icon>
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
@@ -30,28 +31,21 @@
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+	<script src="http://code.jquery.com/jquery.min.js"></script>
 
   </head>
 
   <body>
-    <div class="navbar">
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">猫酱的github小站</a>
+          <a class="brand" href="/">某半靈的面包</a>
           <ul class="nav">
             
             
             
 
 
-  
-    
-      
-      	
-      	<li><a href="/pages.html">Page</a></li>
-      	
-      
-    
   
     
       
@@ -75,6 +69,10 @@
   
     
       
+      	
+      	<li><a href="/rss.xml">RSS 订阅</a></li>
+      	
+      
     
   
     
@@ -84,7 +82,7 @@
     
       
       	
-      	<li><a href="/categories.html">分类</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
       
     
@@ -97,9 +95,9 @@
       </div>
     </div>
 
-    <div class="container-narrow">
+    <div class="container-narrow row-fluid" id="content">
 
-      <div class="content">
+      <div class="content main span9">
         
 <div class="page-header">
   <h1>文章 </h1>
@@ -120,12 +118,12 @@
     
   
     
-      <h2>2011</h2>
-      <h3>December</h3>
+      <h2>2014</h2>
+      <h3>January</h3>
       <ul>
     
   
-    <li><span>December 29, 2011</span> &raquo; <a href="/lessons/2011/12/29/jekyll-introduction">Jekyll Introduction</a></li>
+    <li><span>January  5, 2014</span> &raquo; <a href="/jekyll/2014/01/05/jekyll-%E4%BC%AA%E6%98%A5%E8%8F%9C">Jekyll 伪春菜</a></li>
   
     
       </ul>
@@ -139,17 +137,74 @@
 
 
       </div>
+	  <div class="span3 sidebar">
+		  <h3>导航</h3>
+          <ul class="nav nav-tabs nav-stacked">
+			  <li><a href="/">首页</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li class="active"><a href="/archive.html" class="active">文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">标签</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/rss.xml">RSS 订阅</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">文章分类</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+	  </div>
       <hr>
-      <footer>
-        <p>&copy; 2014 myon
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
 
     </div>
+  <footer id="footer">
+	<p class="text-center">&copy; 2014 myon
+	  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+	  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+	</p>
+  </footer>
 
     
+	<!--引入伪春菜-->
+	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>
 

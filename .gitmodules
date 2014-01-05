@@ -1,0 +1,3 @@
+[submodule "ukagaka"]
+	path = ukagaka
+	url = git@github.com:DrayChou/ukagaka.git
