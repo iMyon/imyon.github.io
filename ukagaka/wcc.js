@@ -157,7 +157,7 @@ include([
             WCC.init({
                 '_site_path': http_base, //站点地址
                 '_weichuncai_path': http_base + "data.json", //请求的数据文件地址
-                'imagewidth': "240",
+                'imagewidth': "120",
                 'imageheight': "240",
                 'ghost': "default",
                 'talkself_user': [

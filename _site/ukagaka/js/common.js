@@ -17,7 +17,7 @@ var WCC = {
 
 		_site_path: "", //基础路径
 		_weichuncai_path: "data.json", //请求的数据文件地址
-		imagewidth: '240', //伪春菜的大小
+		imagewidth: '120', //伪春菜的大小
 		imageheight: '240', //伪春菜的大小
 
 		ghost: "default",
@@ -240,7 +240,8 @@ var WCC = {
 		this.clearChuncaiSay();
 
 		if (this.data.this_ghost['closeInput']) {
-			this.data.this_ghost.closeInput();
+			if($(".talk").is(':focus')===false)
+				this.data.this_ghost.closeInput();
 		}
 
 		this.chuncaiSay("准备做什么呢？");
@@ -292,7 +293,8 @@ var WCC = {
 			this.closeNotice();
 
 			if (this.data.this_ghost['closeInput']) {
-				this.data.this_ghost.closeInput();
+				if($(".talk").is(':focus')===false)
+					this.data.this_ghost.closeInput();
 			}
 
 			tsi = Math.floor(Math.random() * this.data.talkself_arr.length + 1) - 1;

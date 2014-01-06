@@ -201,15 +201,24 @@ var ghost = {
                 } else if (el == 'talking') {
 
                     var talkcon = $(".wcc .talk").val();
-                    var i = ghost.data.WCC.tools.in_array(talkcon, dat.ques);
-                    var types = typeof(i);
-                    if (types != 'boolean') {
-                        ghost.data.WCC.chuncaiSay(dat.ans[i]);
-                        ghost.data.WCC.setFace(2);
-                    } else {
-                        ghost.data.WCC.chuncaiSay('.......................嗯？');
-                        ghost.data.WCC.setFace(3);
-                    }
+                    //var i = ghost.data.WCC.tools.in_array(talkcon, dat.ques);
+                    //var types = typeof(i);
+                    //if (types != 'boolean') {
+                        //ghost.data.WCC.chuncaiSay(dat.ans[i]);
+                        //ghost.data.WCC.setFace(2);
+                    //} else {
+                        //ghost.data.WCC.chuncaiSay('.......................嗯？');
+                        //ghost.data.WCC.setFace(3);
+                    //}
+					//ghost.data.WCC.chuncaiSay('..........别着急，春菜正在思考中...');
+					$.getScript(
+						//"https://xiaohuangji-yoki.rhcloud.com/xhj.php?text="+talkcon,
+						"https://xiaohuangji-yoki.rhcloud.com/xhj.php?text="+talkcon,
+						function()
+						{
+							ghost.data.WCC.chuncaiSay("<span class='text-success'>"+xhj_res.text+"</span>");
+						}
+					);
                     ghost.clearInput();
 
                 } else if (el == 'foods') {
