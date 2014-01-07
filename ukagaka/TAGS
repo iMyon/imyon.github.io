@@ -1,0 +1,80 @@
+
+TAGS,0
+
+ghost/rakutori/face3.gif,0
+
+ghost/rakutori/face1.gif,0
+
+ghost/rakutori/face2.gif,0
+
+ghost/default/face3.gif,0
+
+ghost/default/face1.gif,0
+
+ghost/default/.ghost.js.swp,0
+
+ghost/default/face4.png,0
+
+ghost/default/ghost.js,32
+    action: [ghost.action2,14
+
+ghost/default/face2.gif,0
+
+ghost/chinese_moe/face1.gif,0
+
+ghost/neko/face1.gif,0
+
+tags,0
+
+.data.json.swp,0
+
+wcc.js,379
+            callback: callback,f.recall.callback81,2854
+            isNotLoad: file.lengthf.recall.isNotLoad82,2886
+function include(file, callback, callID) {include13,206
+function seriesLoadScripts(scripts, callback) {seriesLoadScripts95,3291
+function parallelLoadScripts(scripts, callback) {parallelLoadScripts120,4381
+var http_base = "/ukagaka/";http_base148,5500
+
+data.json,0
+
+imgs/ok.jpg,0
+
+imgs/menu.jpg,0
+
+imgs/chat_top.gif,0
+
+imgs/loading.gif,0
+
+imgs/chat_bottom.gif,0
+
+.wcc.js.swp,0
+
+js/.common.js.swp,0
+
+js/common.js,1130
+	data: {WCC.data3,13
+		var wcc_html = '';delete.wcc_html122,3232
+		var cwidth = document.documentElement.clientWidth - 100;cwidth161,4946
+		var cheight = document.documentElement.clientHeight - 20;cheight162,5005
+		var moveX = 0;moveX163,5065
+		var moveY = 0;moveY164,5082
+		var moveTop = 0;moveTop165,5099
+		var moveLeft = 0;moveLeft166,5118
+		var moveable = false;moveable167,5138
+		var docMouseMoveEvent = document.onmousemove;docMouseMoveEvent168,5162
+		var docMouseUpEvent = document.onmouseup;docMouseUpEvent169,5210
+			var days = Math.floor(date3 / (24 * 3600 * 1000));days419,12350
+			var leave1 = date3 % (24 * 3600 * 1000); //计算天数后剩余的毫秒数leave1423,12545
+			var hours = Math.floor(leave1 / (3600 * 1000));hours424,12625
+			var leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数leave2426,12703
+			var minutes = Math.floor(leave2 / (60 * 1000));minutes427,12782
+			var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数leave3430,12858
+			var seconds = Math.round(leave3 / 1000);seconds431,12935
+			var str = '';str433,12980
+
+css/style.css,0
+
+index.html,0
+
+README.md,0

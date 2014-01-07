@@ -54,7 +54,7 @@ var WCC = {
 		var wcc_html = "";
 		for (var i = this.data.this_ghost.action.length - 1; i >= 0; i--) {
 			wcc_html += '<ul class="wcc_mlist ghost_envent" id="' + this.data.this_ghost.action[i][0] + '">' + this.data.this_ghost.action[i][1] + '</ul>';
-		};
+		}
 		$(".wcc .showchuncaimenu").prepend(wcc_html);
 
 		$(".wcc .getmenu").click(function() {
@@ -85,10 +85,10 @@ var WCC = {
 		});
 
 		// $(".wcc .chuncaiface").mousemove(function() {
-		// 	WCC.stoptime();
-		// 	WCC.data.tol = 0;
-		// 	WCC.setTime();
-		// 	WCC.chuncaiSay("啊，野生的主人出现了！ ～～～O口O");
+		//WCC.stoptime();
+		//WCC.data.tol = 0;
+		//WCC.setTime();
+		//WCC.chuncaiSay("啊，野生的主人出现了！ ～～～O口O");
 		// });
 		this.talkSelf(this.data.talktime);
 
@@ -106,7 +106,7 @@ var WCC = {
 			this.closechuncai_init();
 		}
 		//设置初始状态
-		if (this.data.this_ghost['shownotice']) {
+		if (this.data.this_ghost.shownotice) {
 			this.data.this_ghost.shownotice();
 		}
 		this.setFace(1);
@@ -150,12 +150,11 @@ var WCC = {
 
 		var getwidth = this.tools.getCookie("historywidth");
 		var getheight = this.tools.getCookie("historyheight");
-		if (getwidth != null && getheight != null) {
-			var width = getwidth;
-			var height = getheight;
-		} else {
-			var width = document.documentElement.clientWidth - 200 - this.data.imagewidth;
-			var height = document.documentElement.clientHeight - 180 - this.data.imageheight;
+		var width = document.documentElement.clientWidth - this.data.imagewidth;
+		var height = document.documentElement.clientHeight - this.data.imageheight;
+		if (getwidth !== null && getheight !== null) {
+			width = getwidth;
+			height = getheight;
 		}
 
 		var cwidth = document.documentElement.clientWidth - 100;
@@ -239,7 +238,7 @@ var WCC = {
 	chuncaiMenu: function() {
 		this.clearChuncaiSay();
 
-		if (this.data.this_ghost['closeInput']) {
+		if (this.data.this_ghost.closeInput) {
 			if($(".talk").is(':focus')===false)
 				this.data.this_ghost.closeInput();
 		}
@@ -381,7 +380,7 @@ var WCC = {
 		}
 		this.data._typei += p;
 		$('.wcc .tempsaying').html(str);
-		txtst = setTimeout("WCC.typeWords()", 20);
+		txtst = setTimeout(function(){WCC.typeWords();}, 20);
 		if (this.data._typei > this.data.weichuncai_text.length) {
 			clearTimeout(txtst);
 			this.data._typei = 0;
@@ -445,25 +444,25 @@ var WCC = {
 			var def_prop = Object.defineProperty;
 
 			prop(source).forEach(function(key) {
-				def_prop(target, key, desc(source, key))
-			})
+				def_prop(target, key, desc(source, key));
+			});
 			return target;
 		},
 
 		getCookie: function(name) {
 			var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
-			if (arr != null) return unescape(arr[2]);
+			if (arr !== null) return unescape(arr[2]);
 			return null;
 		},
 
 		setCookie: function(name, val, ex) {
 			var times = new Date();
 			times.setTime(times.getTime() + ex);
-			if (ex == 0) {
+			if (ex === 0) {
 				document.cookie = name + "=" + val + ";";
 			} else {
 				document.cookie = name + "=" + val + "; expires=" + times.toGMTString();
 			}
 		}
 	}
-}
+};

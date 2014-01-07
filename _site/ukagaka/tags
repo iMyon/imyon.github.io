@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+WCC.data	js/common.js	/^	data: {$/;"	p
+cheight	js/common.js	/^		var cheight = document.documentElement.clientHeight - 20;$/;"	v
+cwidth	js/common.js	/^		var cwidth = document.documentElement.clientWidth - 100;$/;"	v
+days	js/common.js	/^			var days = Math.floor(date3 \/ (24 * 3600 * 1000));$/;"	v
+delete.wcc_html	js/common.js	/^		var wcc_html = '';$/;"	v
+docMouseMoveEvent	js/common.js	/^		var docMouseMoveEvent = document.onmousemove;$/;"	v
+docMouseUpEvent	js/common.js	/^		var docMouseUpEvent = document.onmouseup;$/;"	v
+f.recall.callback	wcc.js	/^            callback: callback,$/;"	p
+f.recall.isNotLoad	wcc.js	/^            isNotLoad: file.length$/;"	p
+ghost.action	ghost/default/ghost.js	/^    action: [$/;"	p
+hours	js/common.js	/^			var hours = Math.floor(leave1 \/ (3600 * 1000));$/;"	v
+http_base	wcc.js	/^var http_base = "\/ukagaka\/";$/;"	v
+include	wcc.js	/^function include(file, callback, callID) {$/;"	f
+leave1	js/common.js	/^			var leave1 = date3 % (24 * 3600 * 1000); \/\/计算天数后剩余的毫秒数$/;"	v
+leave2	js/common.js	/^			var leave2 = leave1 % (3600 * 1000); \/\/计算小时数后剩余的毫秒数$/;"	v
+leave3	js/common.js	/^			var leave3 = leave2 % (60 * 1000); \/\/计算分钟数后剩余的毫秒数$/;"	v
+minutes	js/common.js	/^			var minutes = Math.floor(leave2 \/ (60 * 1000));$/;"	v
+moveLeft	js/common.js	/^		var moveLeft = 0;$/;"	v
+moveTop	js/common.js	/^		var moveTop = 0;$/;"	v
+moveX	js/common.js	/^		var moveX = 0;$/;"	v
+moveY	js/common.js	/^		var moveY = 0;$/;"	v
+moveable	js/common.js	/^		var moveable = false;$/;"	v
+parallelLoadScripts	wcc.js	/^function parallelLoadScripts(scripts, callback) {$/;"	f
+seconds	js/common.js	/^			var seconds = Math.round(leave3 \/ 1000);$/;"	v
+seriesLoadScripts	wcc.js	/^function seriesLoadScripts(scripts, callback) {$/;"	f
+str	js/common.js	/^			var str = '';$/;"	v

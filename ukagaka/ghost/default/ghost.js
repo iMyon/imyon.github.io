@@ -156,22 +156,11 @@ var ghost = {
      * 读取数据
      */
     getdata: function(el, id) {
-        $.ajax({
-            type: 'GET',
-            url: ghost.data.WCC.data._weichuncai_path,
-            cache: 'false',
-            dataType: 'html',
-            contentType: 'application/json; charset=utf8',
-            beforeSend: function() {
-                //$("#dialog_chat").fadeOut("normal");
-                $(".wcc .tempsaying").css('display', "none");
-                $(".wcc .dialog_chat_loading").fadeIn("normal");
-            },
-            success: function(data) {
+        $.ajax(ghost.data.WCC.data._weichuncai_path)
+            .done(function(data) {
                 $(".wcc .dialog_chat_loading").css('display', "none");
                 //$("#dialog_chat").fadeIn("normal");
                 $(".wcc .tempsaying").css('display', "");
-                var dat = eval("(" + data + ")");
                 if (el == 'defaultccs') {
                     ghost.data.WCC.chuncaiSay(dat.defaultccs);
                 } else if (el == 'getnotice') {
@@ -227,7 +216,7 @@ var ghost = {
                     var arr = dat.foods;
                     var preg = /function/;
                     for (var i in arr) {
-                        if (arr[i] != '' && !preg.test(arr[i])) {
+                        if (arr[i] !== '' && !preg.test(arr[i])) {
                             str += '<ul id="f' + i + '" class="eatfood" onclick="ghost.eatfood(this.id)">' + arr[i] + '</ul>';
                         }
                     }
@@ -245,10 +234,9 @@ var ghost = {
                     return arr;
 
                 }
-            },
-            error: function() {
+            })
+            .fail(function() {
                 ghost.data.WCC.chuncaiSay('好像出错了，是什么错误呢...请联系管理猿');
-            }
-        });
+            });
     }
 };

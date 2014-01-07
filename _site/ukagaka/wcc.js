@@ -11,7 +11,7 @@
 //来自：http://www.im87.cn/blog/252
 
 function include(file, callback, callID) {
-    var f = arguments.callee;
+    var f = arguments.callee;	//当前函数体
 
     f.head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
     if (typeof f.queue === "undefined") {
@@ -145,7 +145,7 @@ function parallelLoadScripts(scripts, callback) {
 // });
 // 
 
-var http_base = "/ukagaka/";
+var http_base = "http://imyon.github.io/ukagaka/";
 
 // 第二种 多个文件，带回调
 // 多个文件以数组的形式书写，每个文件可以单独带回调，

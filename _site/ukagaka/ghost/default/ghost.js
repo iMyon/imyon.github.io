@@ -227,7 +227,7 @@ var ghost = {
                     var arr = dat.foods;
                     var preg = /function/;
                     for (var i in arr) {
-                        if (arr[i] != '' && !preg.test(arr[i])) {
+                        if (arr[i] !== '' && !preg.test(arr[i])) {
                             str += '<ul id="f' + i + '" class="eatfood" onclick="ghost.eatfood(this.id)">' + arr[i] + '</ul>';
                         }
                     }
