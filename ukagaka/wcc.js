@@ -42,6 +42,7 @@ function include(file, callback, callID) {
             elem.setAttribute("rel", "stylesheet");
             elem.setAttribute("type", "text/css");
             elem.setAttribute("href", file);
+			elem.setAttribute("charset","utf-8");
         }
         src = type === "js" ? elem.src : elem.href;
         if (typeof f.queue[src] === "undefined") {
