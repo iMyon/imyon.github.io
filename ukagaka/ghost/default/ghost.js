@@ -156,7 +156,7 @@ var ghost = {
      * 读取数据
      */
     getdata: function(el, id) {
-        $.ajax(ghost.data.WCC.data._weichuncai_path)
+        $.getScript(ghost.data.WCC.data._weichuncai_path)
             .done(function(data) {
                 $(".wcc .dialog_chat_loading").css('display', "none");
                 //$("#dialog_chat").fadeIn("normal");
