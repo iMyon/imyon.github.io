@@ -11,9 +11,9 @@ var ghost = {
         eattimes: 0, //吃了几次
         talkself_arr: [],
         face: {
-            '1': "face1.gif",
-            '2': "face2.gif",
-            '3': "face3.gif"
+            '1': this.data.WCC._site_path + "ghost/" + WCC.data.ghost +"face1.gif",
+            '2': this.data.WCC._site_path + "ghost/" + WCC.data.ghost +"face2.gif",
+            '3': this.data.WCC._site_path + "ghost/" + WCC.data.ghost +"face3.gif"
         },
         WCC: {}
     },
