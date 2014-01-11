@@ -153,7 +153,7 @@ var http_base = "http://imyon.github.io/ukagaka/";
 // 最后一个回调将在最后一个文件加载完后调用
 include([
     [http_base + "css/style.css"],
-    [http_base + "js/common.js",
+    [http_base + "js/common_gbk.js",
         function() {
             WCC.init({
                 '_site_path': http_base, //站点地址

@@ -17,8 +17,7 @@
 
 	<!--添加代码高亮-->
 	<script src="http://code.jquery.com/jquery.min.js"></script>
-    <link href="/assets/themes/twitter/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" media="all">
-    <script type="text/javascript" src="/assets/themes/twitter/google-code-prettify/prettify.js"></script>
+    <link href="/assets/themes/twitter/pygments.css" rel="stylesheet" type="text/css" media="all">
     <!-- Le styles -->
 	<link href="favicon.ico" type="image/x-icon" rel=icon>
     <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -112,51 +111,52 @@
       <span>05 January 2014</span>
     </div>
     <div class="content">
-      <h2 id="">准备</h2>
+      <h2>准备</h2>
 
 <p>下载伪春菜静态实现到你的github io项目的根目录<a href="https://github.com/DrayChou/ukagaka/">DrayChou/ukagaka/</a></p>
 
 <p>我的项目目录在<code>～/github/imyon.github.io/</code></p>
-
-<pre><code>$ cd ～/github/imyon.github.io/
-$ git clone https://github.com/DrayChou/ukagaka/</code></pre>
-
-<h3 id="wccjs">修改wcc.js文件</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
+$ git clone https://github.com/DrayChou/ukagaka/
+</code></pre></div>
+<h3>修改wcc.js文件</h3>
 
 <p>进入伪春菜目录：</p>
-
-<pre><code>$ cd ukagaka
-$ vim wcc.js;</code></pre>
-
-<p>搜索<code>http_base</code>修改该行为：;</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>http_base</span> <span class='o'>=</span> <span class='s2'>&quot;/ukagaka/&quot;</span><span class='p'>;</span>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ukagaka
+$ vim wcc.js;
 </code></pre></div>
-<h2 id="_2">引入</h2>
+<p>搜索<code>http_base</code>修改该行为：;</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">http_base</span> <span class="o">=</span> <span class="s2">&quot;/ukagaka/&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2>引入</h2>
 
 <p>进入主题的default.html文件，不同主题目录是不同的，我的是在<code>_includes/themes/twitter</code></p>
-
-<pre><code>$ cd ..
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ..
 $ cd _includes/themes/twitter
-$ vim default.html</code></pre>
-
-<p>在body结束前引入js</p>
-<div class='highlight'><pre><code class='html'><span class='nt'>&lt;body&gt;</span>
-	...
-	<span class='c'>&lt;!--引入伪春菜--&gt;</span>
-	<span class='nt'>&lt;script </span><span class='na'>src=</span><span class='s'>&quot;http://code.jquery.com/jquery.min.js&quot;</span><span class='nt'>&gt;&lt;/script&gt;</span>
-	<span class='nt'>&lt;script </span><span class='na'>type=</span><span class='s'>&quot;text/javascript&quot;</span> <span class='na'>src=</span><span class='s'>&quot;/ukagaka/wcc.js&quot;</span><span class='nt'>&gt;&lt;/script&gt;</span>
-<span class='nt'>&lt;/body&gt;</span>
+$ vim default.html
 </code></pre></div>
+<p>在body结束前引入js</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="c">&lt;!--引入伪春菜--&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/ukagaka/wcc.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
 <p>最后使用jekyll命令生成网站</p>
-
-<pre><code>$ cd ～/github/imyon.github.io/
-$ jekyll build</code></pre>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
+$ jekyll build
+</code></pre></div>
 <p>ok,结束，访问网站即可看到效果</p>
 
-<h2 id="_3">后记</h2>
+<h2>后记</h2>
 
 <p>刚开始玩github page 和jekyll,折腾了半天终于弄好了。感觉用jekyll写文的感觉不错，以后估计常驻了。</p>
+
     </div>
 
   
@@ -206,7 +206,7 @@ $ jekyll build</code></pre>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -308,16 +308,4 @@ var duoshuoQuery = {short_name:"myon"};
 	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>
-<!--代码高亮-->
-<script type="text/javascript">
-  $(function(){
-    $("pre").addClass("prettyprint linenums");
-    prettyPrint();
-    $('.entry a').each(function(){
-      if($(this).attr("href").indexOf("heiniuhaha") == -1){
-        $(this).attr("target", "_blank");
-      }
-    })
-  });
-</script>
 
