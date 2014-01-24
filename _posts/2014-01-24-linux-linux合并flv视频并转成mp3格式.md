@@ -7,7 +7,9 @@ tags:	[linux,视频合并,格式转换,ffmpeg]
 ###参考文章
 
 [如何合并 flv 文件](http://forum.ubuntu.org.cn/viewtopic.php?f=74&t=291041&start=0) 6L
+
 [使用ffmpeg把flv转换成mp3](http://my.oschina.net/tguitar/blog/101926)
+
 [linux下 合并优酷等网站视频 ](http://blog.csdn.net/swust_long/article/details/7053295)
 
 ###前言
@@ -24,11 +26,11 @@ tags:	[linux,视频合并,格式转换,ffmpeg]
 ###合并视频
 
 ```
-mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv
+`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
 #以上为合并视频其中output.flv 是输出文件,x y z 是分段文件
 
 #转换成mp3格式
-ffmpeg -i output.flv -vn  output.mp3
+`ffmpeg -i output.flv -vn  output.mp3`
 
 ```
 
