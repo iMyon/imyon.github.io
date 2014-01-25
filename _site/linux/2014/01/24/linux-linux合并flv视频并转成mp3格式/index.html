@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Jekyll 伪春菜</title>
+    <title>Linux Linux合并flv视频并转成mp3格式</title>
     
     <meta name="author" content="myon">
 
@@ -102,60 +102,49 @@
       <div class="content main span9">
         
 <div class="page-header">
-  <h1>Jekyll 伪春菜 </h1>
+  <h1>Linux Linux合并flv视频并转成mp3格式 </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>05 January 2014</span>
+      <span>24 January 2014</span>
     </div>
     <div class="content">
-      <h2>准备</h2>
+      <h3>参考文章</h3>
 
-<p>下载伪春菜静态实现到你的github io项目的根目录<a href="https://github.com/DrayChou/ukagaka/">DrayChou/ukagaka/</a></p>
+<p><a href="http://forum.ubuntu.org.cn/viewtopic.php?f=74&amp;t=291041&amp;start=0">如何合并 flv 文件</a> 6L</p>
 
-<p>我的项目目录在<code>～/github/imyon.github.io/</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
-$ git clone https://github.com/DrayChou/ukagaka/
+<p><a href="http://my.oschina.net/tguitar/blog/101926">使用ffmpeg把flv转换成mp3</a></p>
+
+<p><a href="http://blog.csdn.net/swust_long/article/details/7053295">linux下 合并优酷等网站视频 </a></p>
+
+<h3>前言</h3>
+
+<p>由于最近回家了，经常要帮别人到视频网站下视频，这点小事切到win下用硕鼠又太麻烦，所以搜索折腾了一下</p>
+
+<h3>准备</h3>
+
+<p><code>sudo apt-get install ffmpeg mencoder libavcodec-extra-53</code></p>
+
+<h3>下载视频</h3>
+
+<blockquote>
+<blockquote>
+<p>参考<a href="http://blog.csdn.net/swust_long/article/details/7053295">linux下 合并优酷等网站视频</a></p>
+</blockquote>
+</blockquote>
+
+<h3>合并视频</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
+#以上为合并视频其中output.flv 是输出文件,x y z 是分段文件
+
+#转换成mp3格式
+`ffmpeg -i output.flv -vn  output.mp3`
 </code></pre></div>
-<h3>修改wcc.js文件</h3>
+<h3>值得注意的地方</h3>
 
-<p>进入伪春菜目录：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ukagaka
-$ vim wcc.js;
-</code></pre></div>
-<p>搜索<code>http_base</code>修改该行为：;</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">http_base</span> <span class="o">=</span> <span class="s2">&quot;/ukagaka/&quot;</span><span class="p">;</span>
-</code></pre></div>
-
-<h2>引入</h2>
-
-<p>进入主题的default.html文件，不同主题目录是不同的，我的是在<code>_includes/themes/twitter</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ..
-$ cd _includes/themes/twitter
-$ vim default.html
-</code></pre></div>
-<p>在body结束前引入js</p>
-
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;body&gt;</span>
-    ...
-    <span class="c">&lt;!--引入伪春菜--&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/ukagaka/wcc.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
-
-<p>最后使用jekyll命令生成网站</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
-$ jekyll build
-</code></pre></div>
-<p>ok,结束，访问网站即可看到效果</p>
-
-<h2>后记</h2>
-
-<p>刚开始玩github page 和jekyll,折腾了半天终于弄好了。感觉用jekyll写文的感觉不错，以后估计常驻了。</p>
+<p>ffmpeg 转换 flv -&gt; mp3 需要安装<code>libavcodec-extra-53</code>,<code>53</code>可能会随着版本变化，如果apt-get安装提示无源的话自动递增下版本，没安装会转换出错。</p>
 
     </div>
 
@@ -168,8 +157,8 @@ $ jekyll build
 
   
      
-    	<li><a href="/categories.html#jekyll-ref">
-    		jekyll <span>1</span>
+    	<li><a href="/categories.html#linux-ref">
+    		linux <span>1</span>
     	</a></li>
     
   
@@ -187,9 +176,13 @@ $ jekyll build
 
   
      
-    	<li><a href="/tags.html#伪春菜-ref">伪春菜 <span>1</span></a></li>
+    	<li><a href="/tags.html#linux-ref">linux <span>1</span></a></li>
      
-    	<li><a href="/tags.html#jekyll-ref">jekyll <span>1</span></a></li>
+    	<li><a href="/tags.html#视频合并-ref">视频合并 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#格式转换-ref">格式转换 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ffmpeg-ref">ffmpeg <span>1</span></a></li>
     
   
 
@@ -202,11 +195,11 @@ $ jekyll build
     <div class="pagination">
       <ul>
       
-        <li class="prev disabled"><a>&larr; Previous</a></li>
+        <li class="prev"><a href="/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95" title="C++ Reverse()函数的用法">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">Next &rarr;</a></li>
+        <li class="next"><a href="/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86" title="Acg 藤宫ゆき无损资源集">Next &rarr;</a></li>
       
       </ul>
     </div>
