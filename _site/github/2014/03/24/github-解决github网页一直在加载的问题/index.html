@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>文章</title>
+    <title>Github 解决github网页一直在加载的问题</title>
     
     <meta name="author" content="myon">
 
@@ -52,7 +52,7 @@
     
       
       	
-      	<li class="active"><a href="/archive.html" class="active">文章</a></li>
+      	<li><a href="/archive.html">文章</a></li>
       	
       
     
@@ -102,114 +102,115 @@
       <div class="content main span9">
         
 <div class="page-header">
-  <h1>文章 </h1>
+  <h1>Github 解决github网页一直在加载的问题 </h1>
 </div>
 
-<div class="row-fluid">
+<div class="row-fluid post-full">
   <div class="span12">
-    
+    <div class="date">
+      <span>24 March 2014</span>
+    </div>
+    <div class="content">
+      <h3>问题描述</h3>
 
+<p>github网页加载不出来，刚google了下github一直在加载的网址，终于找到了解决方法</p>
 
+<h3>解决方法</h3>
 
+<p>找到系统的hosts文件，添加下面的代码
+<code>shell
+  192.30.252.128 github.com
+  199.27.79.133 raw.github.com
+  199.27.79.133 raw2.github.com
+  192.30.252.141 gist.github.com
+  199.27.79.133 identicons.github.com
+  192.30.252.135 wiki.github.com
+  54.235.185.69 help.github.com
+  192.30.252.144 codeload.github.com
+  199.27.73.184 github.global.ssl.fastly.net
+  199.27.77.129 f.cloud.github.com
+</code></p>
+
+<p>linux需重启下网络<code>/etc/init.d/networking restart</code><br>
+添加之后我这边秒开网页了</p>
+
+<h5>参考链接</h5>
+
+<p><a href="https://code.google.com/p/openerdns/issues/detail?id=7">Github 刷很久出不来</a></p>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
 
 
   
-    
-    
-    
+     
+    	<li><a href="/categories.html#github-ref">
+    		github <span>1</span>
+    	</a></li>
     
   
+
+
+    </ul>
     
-      <h2>2014</h2>
-      <h3>March</h3>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#hosts-ref">hosts <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
       <ul>
-    
-  
-    <li><span>March 24, 2014</span> &raquo; <a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98">Github 解决github网页一直在加载的问题</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>January</h3>
-          <ul>
-        
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January 25, 2014</span> &raquo; <a href="/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86">Acg 藤宫ゆき无损资源集</a></li>
-  
-    
-          
-        
+        <li class="prev"><a href="/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86" title="Acg 藤宫ゆき无损资源集">&larr; Previous</a></li>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January 24, 2014</span> &raquo; <a href="/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F">Linux Linux合并flv视频并转成mp3格式</a></li>
-  
-    
-          
-        
+        <li><a href="/archive.html">Archive</a></li>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January 11, 2014</span> &raquo; <a href="/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95">C++ Reverse()函数的用法</a></li>
-  
-    
-          
-        
+        <li class="next disabled"><a>Next &rarr;</a>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January  9, 2014</span> &raquo; <a href="/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray">C++ Boost学习之array</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January  5, 2014</span> &raquo; <a href="/jekyll/2014/01/05/jekyll-%E4%BC%AA%E6%98%A5%E8%8F%9C">Jekyll 伪春菜</a></li>
-  
-    
       </ul>
+    </div>
+    <hr>
     
-  
+
+
+  <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"myon"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+
 
 
 
@@ -231,7 +232,7 @@
     
       
       	
-      	<li class="active"><a href="/archive.html" class="active">文章</a></li>
+      	<li><a href="/archive.html">文章</a></li>
       	
       
     
