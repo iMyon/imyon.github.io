@@ -117,20 +117,18 @@
 
 <h3>解决方法</h3>
 
-<p>找到系统的hosts文件，添加下面的代码
-<code>shell
-  192.30.252.128 github.com
-  199.27.79.133 raw.github.com
-  199.27.79.133 raw2.github.com
-  192.30.252.141 gist.github.com
-  199.27.79.133 identicons.github.com
-  192.30.252.135 wiki.github.com
-  54.235.185.69 help.github.com
-  192.30.252.144 codeload.github.com
-  199.27.73.184 github.global.ssl.fastly.net
-  199.27.77.129 f.cloud.github.com
-</code></p>
-
+<p>找到系统的hosts文件，添加下面的代码</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">192.30.252.128 github.com
+199.27.79.133 raw.github.com
+199.27.79.133 raw2.github.com
+192.30.252.141 gist.github.com
+199.27.79.133 identicons.github.com
+192.30.252.135 wiki.github.com
+54.235.185.69 help.github.com
+192.30.252.144 codeload.github.com
+199.27.73.184 github.global.ssl.fastly.net
+199.27.77.129 f.cloud.github.com
+</code></pre></div>
 <p>linux需重启下网络<code>/etc/init.d/networking restart</code><br>
 添加之后我这边秒开网页了</p>
 

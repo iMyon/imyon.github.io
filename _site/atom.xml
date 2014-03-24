@@ -4,7 +4,7 @@
  <title>某半靈的面包</title>
  <link href="http://iMyon.github.io/" rel="self"/>
  <link href="http://iMyon.github.io"/>
- <updated>2014-03-24T11:05:53+08:00</updated>
+ <updated>2014-03-24T11:23:46+08:00</updated>
  <id>http://iMyon.github.io</id>
  <author>
    <name>myon</name>
@@ -23,20 +23,18 @@
 
 &lt;h3&gt;解决方法&lt;/h3&gt;
 
-&lt;p&gt;找到系统的hosts文件，添加下面的代码
-&lt;code&gt;shell
-  192.30.252.128 github.com
-  199.27.79.133 raw.github.com
-  199.27.79.133 raw2.github.com
-  192.30.252.141 gist.github.com
-  199.27.79.133 identicons.github.com
-  192.30.252.135 wiki.github.com
-  54.235.185.69 help.github.com
-  192.30.252.144 codeload.github.com
-  199.27.73.184 github.global.ssl.fastly.net
-  199.27.77.129 f.cloud.github.com
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;p&gt;找到系统的hosts文件，添加下面的代码&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;192.30.252.128 github.com
+199.27.79.133 raw.github.com
+199.27.79.133 raw2.github.com
+192.30.252.141 gist.github.com
+199.27.79.133 identicons.github.com
+192.30.252.135 wiki.github.com
+54.235.185.69 help.github.com
+192.30.252.144 codeload.github.com
+199.27.73.184 github.global.ssl.fastly.net
+199.27.77.129 f.cloud.github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;linux需重启下网络&lt;code&gt;/etc/init.d/networking restart&lt;/code&gt;&lt;br&gt;
 添加之后我这边秒开网页了&lt;/p&gt;
 
