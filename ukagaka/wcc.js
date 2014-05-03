@@ -146,7 +146,7 @@ function parallelLoadScripts(scripts, callback) {
 // });
 // 
 
-var http_base = "http://imyon.github.io/ukagaka/";
+var http_base = "/ukagaka/";
 
 // 第二种 多个文件，带回调
 // 多个文件以数组的形式书写，每个文件可以单独带回调，
@@ -158,9 +158,9 @@ include([
             WCC.init({
                 '_site_path': http_base, //站点地址
                 '_weichuncai_path': http_base + "data.json", //请求的数据文件地址
-                'imagewidth': "120",
+                'imagewidth': "200",
                 'imageheight': "240",
-                'ghost': "default",
+                'ghost': "ikamusume",
                 'talkself_user': [
                     ["嘻嘻嘻嘻嘻嘻，主人的伪春菜可以自定义说什么话了。", "2"],
                     ["喔耶～加油！加油！加油！加油！", "2"],

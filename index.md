@@ -5,8 +5,6 @@ title: 半分虚幻的庭师
 ---
 {% include JB/setup %}
 
-##文章列表
-
 {% for post in site.posts %}
 <div class = "card">
 	<div class = "clearfix">

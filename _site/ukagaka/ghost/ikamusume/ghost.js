@@ -11,9 +11,11 @@ var ghost = {
         eattimes: 0, //吃了几次
         talkself_arr: [],
         face: {
-            '1': "face1.gif",
-            '2': "face2.gif",
-            '3': "face3.gif"
+            '1': "ikamusume001.gif",
+            '2': "ikamusume002.gif",
+            '3': "ikamusume003.gif",
+            '4': "ikamusume004.gif",
+            '5': "ikamusume005.gif"
         },
         WCC: {}
     },
@@ -67,14 +69,14 @@ var ghost = {
     },
 
     closeInput: function() {
-        ghost.data.WCC.setFace(3);
+        //ghost.data.WCC.setFace(5);
         $(".wcc .addinput").css("display", "none");
     },
 
     inp_r: function() {
         this.closeInput();
         this.data.WCC.chuncaiSay('不聊天了吗？(→_→)');
-        ghost.data.WCC.setFace(3);
+        //ghost.data.WCC.setFace(5);
     },
 
     talkto: function() {
@@ -98,14 +100,14 @@ var ghost = {
         var gettimes = this.data.WCC.tools.getCookie("eattimes");
         if (parseInt(gettimes) > parseInt(9)) {
             this.data.WCC.chuncaiSay("主人是个大混蛋！！");
-            ghost.data.WCC.setFace(3);
+            ghost.data.WCC.setFace(5);
             this.closechuncai_evil();
         } else if (parseInt(gettimes) > parseInt(7)) {
             this.data.WCC.chuncaiSay(".....................肚子要炸了，死也不要再吃了～～！！！TAT");
-            ghost.data.WCC.setFace(3);
+            ghost.data.WCC.setFace(5);
         } else if (parseInt(gettimes) == parseInt(5)) {
             this.data.WCC.chuncaiSay("我已经吃饱了，不要再吃啦......");
-            ghost.data.WCC.setFace(3);
+            ghost.data.WCC.setFace(5);
         } else if (parseInt(gettimes) == parseInt(3)) {
             this.data.WCC.chuncaiSay("多谢款待，我吃饱啦～～～ ╰（￣▽￣）╭");
             ghost.data.WCC.setFace(2);
@@ -137,7 +139,7 @@ var ghost = {
         this.data.WCC.chuncaiSay("马上就跳转到我父母去了哦～～～");
         ghost.data.WCC.setFace(2);
         setTimeout(function() {
-            window.location.href = 'https://github.com/DrayChou/ukagaka/';
+            window.location.href = 'https://github.com/iMyon/ukagaka/';
         }, 2000);
     },
 
@@ -172,7 +174,7 @@ var ghost = {
                     ghost.data.WCC.data.talkself_arr = ghost.data.talkself_arr.concat(dat.talkself_user);
 
                     ghost.data.WCC.chuncaiSay(dat.notice);
-                    ghost.data.WCC.setFace(1);
+                    ghost.data.WCC.setFace(4);
 
                 } else if (el == 'showlifetime') {
 
@@ -197,7 +199,7 @@ var ghost = {
                         ghost.data.WCC.setFace(2);
                     } else {
                         ghost.data.WCC.chuncaiSay('.......................嗯？');
-                        ghost.data.WCC.setFace(3);
+                        ghost.data.WCC.setFace(1);
                     }
                     ghost.clearInput();
 

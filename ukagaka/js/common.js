@@ -2,7 +2,7 @@ var WCC = {
 
 	data: {
 		talktime: 0,
-		talkself: 60, //设置自言自语频率（单位：秒）
+		talkself: 30, //设置自言自语频率（单位：秒）
 		talkobj: {},
 		tsi: 0,
 
@@ -90,14 +90,14 @@ var WCC = {
 		//WCC.setTime();
 		//WCC.chuncaiSay("啊，野生的主人出现了！ ～～～O口O");
 		// });
-		this.talkSelf(this.data.talktime);
+		this.talkSelf(this.data.talktime,1);
 
 		$(".wcc.smchuncai").mouseover(function() {
 			if (talkobj) {
 				clearTimeout(talkobj);
 			}
 			WCC.data.talktime = 0;
-			WCC.talkSelf(WCC.data.talktime);
+			WCC.talkSelf(WCC.data.talktime,1);
 		});
 
 		//判断春菜是否处于隐藏状态
@@ -109,7 +109,7 @@ var WCC = {
 		if (this.data.this_ghost.shownotice) {
 			this.data.this_ghost.shownotice();
 		}
-		this.setFace(1);
+		this.setFace(4);
 	},
 
 	init: function(data) {
@@ -212,7 +212,7 @@ var WCC = {
 					moveTop = 0;
 					moveLeft = 0;
 				}
-			}
+			};
 		});
 	},
 
@@ -225,7 +225,7 @@ var WCC = {
 		html += '</div>';
 
 		$("head").append(html);
-		this.setFace(1);
+		this.setFace(4);
 	},
 
 	// 设置表情
@@ -283,7 +283,12 @@ var WCC = {
 	},
 
 	//自言自语
-	talkSelf: function(talktime) {
+  //type为类型，0是使用默认arr，1是使用一言
+	talkSelf: function(talktime,type) {
+    //默认type为0
+    if(!type){
+      type = 0;
+    }
 		this.data.talktime++;
 		var tslen = this.data.talkself_arr.length;
 		var yushu = this.data.talktime % this.data.talkself;
@@ -296,12 +301,29 @@ var WCC = {
 					this.data.this_ghost.closeInput();
 			}
 
-			tsi = Math.floor(Math.random() * this.data.talkself_arr.length + 1) - 1;
-			this.chuncaiSay(this.data.talkself_arr[tsi][0]);
-			this.setFace(this.data.talkself_arr[tsi][1]);
+      //使用一言
+      if(type === 1){
+        $.getScript("http://api.hitokoto.us/rand?encode=jsc&fun=WCC.hitokotoCallback");
+      }
+      //默认说话
+      else{
+        tsi = Math.floor(Math.random() * this.data.talkself_arr.length + 1) - 1;
+        this.chuncaiSay(this.data.talkself_arr[tsi][0]);
+        this.setFace(this.data.talkself_arr[tsi][1]);
+      }
 		}
-		talkobj = window.setTimeout("WCC.talkSelf(" + this.data.talktime + ")", 1000);
+    talkobj = window.setTimeout("WCC.talkSelf(" + this.data.talktime + ","+ type +")", 1000);
 	},
+
+  //一言回调函数
+  hitokotoCallback: function(data){
+    var sayText = data.hitokoto;
+    //if(data.source){
+      //sayText = sayText + " -- 《" + data.source+ "》";
+    //}
+    this.chuncaiSay(sayText);
+    this.setFace(2);
+  },
 
 	//停止自言自语
 	stopTalkSelf: function() {
@@ -335,7 +357,7 @@ var WCC = {
 
 	//开启春菜
 	callchuncai: function() {
-		this.talkSelf(this.data.talktime);
+		this.talkSelf(this.data.talktime,1);
 		$(".wcc.smchuncai").fadeIn('normal');
 		$(".callchuncai").css("display", "none");
 		this.closeChuncaiMenu();
