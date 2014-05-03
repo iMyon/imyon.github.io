@@ -15,13 +15,9 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-	<!--添加代码高亮-->
-	<script src="http://code.jquery.com/jquery.min.js"></script>
-    <link href="/assets/themes/twitter/pygments.css" rel="stylesheet" type="text/css" media="all">
     <!-- Le styles -->
-	<link href="favicon.ico" type="image/x-icon" rel=icon>
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -38,9 +34,9 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse">
+    <div class="navbar">
       <div class="navbar-inner">
-        <div class="container-narrow">
+       <div class="nav-narrow">
           <a class="brand" href="/">某半靈的面包</a>
           <ul class="nav">
             
@@ -97,21 +93,32 @@
       </div>
     </div>
 
-    <div class="container-narrow row-fluid" id="content">
+    <div class="container-narrow">
 
-      <div class="content main span9">
+      <div class="content">
         
+<!--
 <div class="page-header">
   <h1>Js Event属性target和currenttarget的区别 </h1>
 </div>
+-->
 
 <div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>27 March 2014</span>
-    </div>
-    <div class="content">
-      <h3>w3c描述</h3>
+  <div class="span12 ">
+    <div class="content card">
+       <div class = "clearfix">
+        <div class="date_label">
+          <div class="day_month">
+          03/27
+          </div>
+          <div class="year">
+          2014
+          </div>
+        </div>
+      </div>
+      <h1>js中的target和currentTarget</h1>
+
+<h3>w3c描述</h3>
 
 <blockquote>
 <p>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
@@ -121,6 +128,8 @@
 </blockquote>
 
 <p>w3c两个例子都是一样的代码，让人第一眼有点搞不懂他想干什么</p>
+
+<!--break-->
 
 <h3>简单例子</h3>
 <div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
@@ -187,7 +196,7 @@ function t_getEventTrigger(event)
 
 <div>
 <p id="p2" onmousedown="t_getEventTrigger(event)" style="background:#EE8B86">
-我是p1
+我是p2
 <span id="e1" style="background:#FFFFEE">我是e1</span>
 <span id="e2" style="background:green">我是e2</span>
 </p>
@@ -202,7 +211,7 @@ function t_getEventTrigger(event)
     </div>
 
   
-    <ul class="tag_box inline">
+    <ul class="tag_box inline card">
       <li><i class="icon-folder-open"></i></li>
       
       
@@ -221,7 +230,7 @@ function t_getEventTrigger(event)
     
 
   
-    <ul class="tag_box inline">
+    <ul class="tag_box inline card">
       <li><i class="icon-tags"></i></li>
       
       
@@ -243,14 +252,14 @@ function t_getEventTrigger(event)
     
 
     <hr>
-    <div class="pagination">
-      <ul>
+    <div class="pagination card clearfix">
+      <ul class = "pull-right">
       
-        <li class="prev"><a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98" title="Github 解决github网页一直在加载的问题">&larr; Previous</a></li>
+        <li class="prev"><a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98" title="Github 解决github网页一直在加载的问题">&larr; 前一篇</a></li>
       
-        <li><a href="/archive.html">Archive</a></li>
+        <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next disabled"><a>后一篇 &rarr;</a>
       
       </ul>
     </div>
@@ -282,74 +291,17 @@ var duoshuoQuery = {short_name:"myon"};
 
 
       </div>
-	  <div class="span3 sidebar">
-		  <h3>导航</h3>
-          <ul class="nav nav-tabs nav-stacked">
-			  <li><a href="/">首页</a></li>
-            
-            
-            
-
-
-  
-    
-      
-      	
-      	<li><a href="/archive.html">文章</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/tags.html">标签</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/rss.xml">RSS 订阅</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories.html">文章分类</a></li>
-      	
-      
-    
-  
-
-
-
-          </ul>
-	  </div>
       <hr>
+      <footer class="card">
+        <p>&copy; 2014 myon
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
 
     </div>
-  <footer id="footer">
-	<p class="text-center">&copy; 2014 myon
-	  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-	  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-	</p>
-  </footer>
 
     
-	<!--引入伪春菜-->
-	<script type="text/javascript" src="/ukagaka/wcc.js"></script>
   </body>
 </html>
 

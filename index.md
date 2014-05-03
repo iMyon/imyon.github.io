@@ -7,8 +7,23 @@ title: 半分虚幻的庭师
 
 ##文章列表
 
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+<div class = "card">
+	<div class = "clearfix">
+		<div  class = "date_label">
+			<div class="day_month">
+      			{{ post.date | date:"%m/%d" }}
+      			</div>
+      			<div class="year">
+      			{{ post.date | date:"%Y" }}
+      			</div>
+      		</div> 
+	</div>
+		{{ post.content  | | split:'<!--break-->' | first }}
+	<div class = "read_more">
+		<a href="{{ BASE_PATH }}{{ post.url }}">查看全文</a>
+	</div>
+	
+</div>
+<hr>
+{% endfor %}

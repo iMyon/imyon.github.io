@@ -4,7 +4,7 @@
  <title>某半靈的面包</title>
  <link href="http://iMyon.github.io/" rel="self"/>
  <link href="http://iMyon.github.io"/>
- <updated>2014-03-27T16:07:20+08:00</updated>
+ <updated>2014-05-03T16:07:12+08:00</updated>
  <id>http://iMyon.github.io</id>
  <author>
    <name>myon</name>
@@ -17,7 +17,9 @@
    <link href="http://iMyon.github.io/js/2014/03/27/js-event%E5%B1%9E%E6%80%A7target%E5%92%8CcurrentTarget%E7%9A%84%E5%8C%BA%E5%88%AB"/>
    <updated>2014-03-27T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/js/2014/03/27/js-event属性target和currentTarget的区别</id>
-   <content type="html">&lt;h3&gt;w3c描述&lt;/h3&gt;
+   <content type="html">&lt;h1&gt;js中的target和currentTarget&lt;/h1&gt;
+
+&lt;h3&gt;w3c描述&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。&lt;/p&gt;
@@ -27,6 +29,8 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;w3c两个例子都是一样的代码，让人第一眼有点搞不懂他想干什么&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h3&gt;简单例子&lt;/h3&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -93,7 +97,7 @@ function t_getEventTrigger(event)
 
 &lt;div&gt;
 &lt;p id=&quot;p2&quot; onmousedown=&quot;t_getEventTrigger(event)&quot; style=&quot;background:#EE8B86&quot;&gt;
-我是p1
+我是p2
 &lt;span id=&quot;e1&quot; style=&quot;background:#FFFFEE&quot;&gt;我是e1&lt;/span&gt;
 &lt;span id=&quot;e2&quot; style=&quot;background:green&quot;&gt;我是e2&lt;/span&gt;
 &lt;/p&gt;
@@ -112,9 +116,13 @@ function t_getEventTrigger(event)
    <link href="http://iMyon.github.io/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98"/>
    <updated>2014-03-24T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/github/2014/03/24/github-解决github网页一直在加载的问题</id>
-   <content type="html">&lt;h3&gt;问题描述&lt;/h3&gt;
+   <content type="html">&lt;h1&gt;hosts解决github网页一直加载问题&lt;/h1&gt;
 
-&lt;p&gt;github网页加载不出来，刚google了下github一直在加载的网址，终于找到了解决方法&lt;/p&gt;
+&lt;h3&gt;问题描述&lt;/h3&gt;
+
+&lt;p&gt;github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h3&gt;解决方法&lt;/h3&gt;
 
@@ -144,11 +152,15 @@ function t_getEventTrigger(event)
    <link href="http://iMyon.github.io/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86"/>
    <updated>2014-01-25T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/acg/2014/01/25/acg-藤宫ゆき无损资源集</id>
-   <content type="html">&lt;h4&gt;说明&lt;/h4&gt;
+   <content type="html">&lt;h1&gt;藤宫娘的无损歌曲&lt;/h1&gt;
+
+&lt;h4&gt;说明&lt;/h4&gt;
 
 &lt;p&gt;个人整理，资源来自网络.
 原来的链接用的是bae，2月开始收费，链接应该会失效。
 为了方便编辑补档，文章就放在这边了&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h4&gt;下载地址&lt;/h4&gt;
 
@@ -293,7 +305,9 @@ function t_getEventTrigger(event)
    <link href="http://iMyon.github.io/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F"/>
    <updated>2014-01-24T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/linux/2014/01/24/linux-linux合并flv视频并转成mp3格式</id>
-   <content type="html">&lt;h3&gt;参考文章&lt;/h3&gt;
+   <content type="html">&lt;h1&gt;linux合并flv视频并转换成mp3格式&lt;/h1&gt;
+
+&lt;h3&gt;参考文章&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://forum.ubuntu.org.cn/viewtopic.php?f=74&amp;amp;t=291041&amp;amp;start=0&quot;&gt;如何合并 flv 文件&lt;/a&gt; 6L&lt;/p&gt;
 
@@ -304,6 +318,8 @@ function t_getEventTrigger(event)
 &lt;h3&gt;前言&lt;/h3&gt;
 
 &lt;p&gt;由于最近回家了，经常要帮别人到视频网站下视频，这点小事切到win下用硕鼠又太麻烦，所以搜索折腾了一下&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h3&gt;准备&lt;/h3&gt;
 
@@ -335,7 +351,9 @@ function t_getEventTrigger(event)
    <link href="http://iMyon.github.io/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95"/>
    <updated>2014-01-11T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/cpp/2014/01/11/c++-reverse()函数的用法</id>
-   <content type="html">&lt;h3&gt;参考资料&lt;/h3&gt;
+   <content type="html">&lt;h1&gt;c++中的std::reverse函数&lt;/h1&gt;
+
+&lt;h3&gt;参考资料&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://en.cppreference.com/w/cpp/algorithm/reverse&quot;&gt;std::reverse&lt;/a&gt;&lt;/p&gt;
 
@@ -348,6 +366,8 @@ function t_getEventTrigger(event)
 &lt;h3&gt;简单介绍&lt;/h3&gt;
 
 &lt;p&gt;翻转c++数组或STL容器指定范围内的值&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h3&gt;简单例子&lt;/h3&gt;
 
@@ -422,7 +442,9 @@ function t_getEventTrigger(event)
    <link href="http://iMyon.github.io/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray"/>
    <updated>2014-01-09T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/cpp/2014/01/09/c++-boost学习之array</id>
-   <content type="html">&lt;h3&gt;参考资料;&lt;/h3&gt;
+   <content type="html">&lt;h1&gt;boost中的array&lt;/h1&gt;
+
+&lt;h3&gt;参考资料;&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.boost.org/doc/libs/1_55_0/doc/html/array.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
 
@@ -438,6 +460,8 @@ function t_getEventTrigger(event)
 
 &lt;p&gt;虽然STL提供了vector动态数组，但是开销比原来的静态数组要大，这对于一部分人来说是无法忍受的，而c++本身的静态数组支持的操作又不能满足。
 boost.array应运而生&lt;/p&gt;
+
+&lt;!--break--&gt;
 
 &lt;h3&gt;引用头文件&lt;/h3&gt;
 
@@ -622,7 +646,9 @@ boost.array应运而生&lt;/p&gt;
    <link href="http://iMyon.github.io/jekyll/2014/01/05/jekyll-%E4%BC%AA%E6%98%A5%E8%8F%9C"/>
    <updated>2014-01-05T00:00:00+08:00</updated>
    <id>http://iMyon.github.io/jekyll/2014/01/05/jekyll-伪春菜</id>
-   <content type="html">&lt;h2&gt;准备&lt;/h2&gt;
+   <content type="html">&lt;h1&gt;在jkyll中使用伪春菜&lt;/h1&gt;
+
+&lt;h2&gt;准备&lt;/h2&gt;
 
 &lt;p&gt;下载伪春菜静态实现到你的github io项目的根目录&lt;a href=&quot;https://github.com/DrayChou/ukagaka/&quot;&gt;DrayChou/ukagaka/&lt;/a&gt;&lt;/p&gt;
 
@@ -640,6 +666,8 @@ $ vim wcc.js;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http_base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/ukagaka/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;!--break--&gt;
 
 &lt;h2&gt;引入&lt;/h2&gt;
 

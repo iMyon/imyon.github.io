@@ -4,6 +4,8 @@ category:	linux
 tags:	[linux,视频合并,格式转换,ffmpeg]
 ---
 
+#linux合并flv视频并转换成mp3格式
+
 ###参考文章
 
 [如何合并 flv 文件](http://forum.ubuntu.org.cn/viewtopic.php?f=74&t=291041&start=0) 6L
@@ -14,6 +16,8 @@ tags:	[linux,视频合并,格式转换,ffmpeg]
 
 ###前言
 由于最近回家了，经常要帮别人到视频网站下视频，这点小事切到win下用硕鼠又太麻烦，所以搜索折腾了一下
+
+<!--break-->
 
 ###准备
 

@@ -4,6 +4,8 @@ category: js
 tags:	[js,target,currentTarget]
 ---
 
+#js中的target和currentTarget
+
 ###w3c描述
 
 >target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
@@ -12,6 +14,8 @@ tags:	[js,target,currentTarget]
 在捕获和起泡阶段，该属性是非常有用的，因为在这两个节点，它不同于 target 属性。
 
 w3c两个例子都是一样的代码，让人第一眼有点搞不懂他想干什么
+
+<!--break-->
 
 ###简单例子
 
@@ -85,7 +89,7 @@ function t_getEventTrigger(event)
 
 <div>
 <p id="p2" onmousedown="t_getEventTrigger(event)" style="background:#EE8B86">
-我是p1
+我是p2
 <span id="e1" style="background:#FFFFEE">我是e1</span>
 <span id="e2" style="background:green">我是e2</span>
 </p>

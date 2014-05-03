@@ -4,6 +4,8 @@ category: cpp
 tags: [boost,array]
 ---
 
+#boost中的array
+
 ###参考资料;
 
 [官方文档](http://www.boost.org/doc/libs/1_55_0/doc/html/array.html)
@@ -20,6 +22,8 @@ boost.array 是固定长度的数组
 
 虽然STL提供了vector动态数组，但是开销比原来的静态数组要大，这对于一部分人来说是无法忍受的，而c++本身的静态数组支持的操作又不能满足。
 boost.array应运而生
+
+<!--break-->
 
 ###引用头文件
 

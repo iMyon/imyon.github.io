@@ -4,9 +4,13 @@ category: github
 tags:	[github,hosts]
 ---
 
+#hosts解决github网页一直加载问题
+
 ###问题描述
 
-github网页加载不出来，刚google了下github一直在加载的网址，终于找到了解决方法
+github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host
+
+<!--break-->
 
 ###解决方法
 
