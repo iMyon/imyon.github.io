@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 半分虚幻的庭师
+title: Ancient Temple
 (*tagline: Supporting tagline*)
 ---
 {% include JB/setup %}
