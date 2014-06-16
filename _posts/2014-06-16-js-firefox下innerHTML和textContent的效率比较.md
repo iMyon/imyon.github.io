@@ -15,7 +15,7 @@ tags:	[js]
 ###测试代码  
 ####一、多节点测试  
 #####测试方法：通过测试body的innerHTML和textContent，比较两者的耗时
-```js
+```javascript
 var Timing = function(){
   //计时开始
   this.begin = function(){
@@ -53,7 +53,7 @@ textContent耗时: 39 毫秒
 
 ####二、单节点测试  
 #####测试方法：通过测试document.title的innerHTML和textContent，比较两者的耗时
-```js
+```javascript
 var Timing = function(){
   //计时开始
   this.begin = function(){
