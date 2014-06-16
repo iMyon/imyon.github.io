@@ -1,10 +1,10 @@
 ---
 layout:	post
-category: acg
+category: js
 tags:	[js]
 ---
 
-#firefox下innerHTML和textContent的效率比较  
+##firefox下innerHTML和textContent的效率比较  
 
 ###说明
 
