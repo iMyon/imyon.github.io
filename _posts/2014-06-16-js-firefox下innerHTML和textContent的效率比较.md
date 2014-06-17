@@ -28,7 +28,6 @@ var Timing = function(){
   };
 };
 
-//example:
 var timing = new Timing();
 timing.begin();
 for(let i=0;i<100;i++) document.body.innerHTML;
@@ -66,7 +65,6 @@ var Timing = function(){
   };
 };
 
-//example:
 var timing = new Timing();
 timing.begin();
 for(let i=0;i<100000;i++) document.title.innerHTML;
