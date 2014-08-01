@@ -152,7 +152,7 @@ var b_coin_chart = {
         $(view).html(
           '<div class="input-group change_fv" style="width:300px;">\
             <input type="text" class="form-control fv" value="'+ fv +'">\
-            <span class="input-group-addon">分钟作为一组数据</span>\
+            <span class="input-group-addon">分钟统计一组数据</span>\
             <span class="input-group-btn">\
               <button id="change_fv_btn"  class="btn btn-default" type="button">点击更新视图</button>\
             </span>\
@@ -170,7 +170,7 @@ var b_coin_chart = {
         var option = {
           title : {
               text: '评分历史',
-              subtext: 'av' + window.aid + " " + '每' + fv + "分钟取一点"
+              subtext: 'av' + window.aid + " " + '每' + fv + "分钟统计一组数据"
           },
           tooltip : {
               trigger: 'axis'
