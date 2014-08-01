@@ -157,9 +157,10 @@ var b_coin_chart = {
         var view = document.getElementById("view");
         if($(".change_fv").length) $(".change_fv").remove();
         $(view).html(
-          '<div class="input-group change_fv" style="width:300px;">\
-            <input type="text" class="form-control fv" value="'+ fv +'">\
-            <span class="input-group-addon">分钟统计一组数据</span>\
+          '<div class="input-group change_fv" style="width:400px;">\
+            <span class="input-group-addon">每</span>\
+            <input type="text" title="值越小图越详细，不过最好取60以上，因为当天的评分只能获取小时的时间精度" class="form-control fv" value="'+ fv +'">\
+            <span class="input-group-addon">分钟作为一组数据</span>\
             <span class="input-group-btn">\
               <button id="change_fv_btn"  class="btn btn-default" type="button">点击更新视图</button>\
             </span>\
@@ -173,6 +174,8 @@ var b_coin_chart = {
         view = document.getElementById("chart_view");
         view.style.height = "700px";
         view.style.width = chart_data.labels.length*20 + "px";
+        if($(view).width() < 1440 )  view.style.width = "1440px";
+
         var myChart = echarts.init(view);
         var option = {
           title : {
