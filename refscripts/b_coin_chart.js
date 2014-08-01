@@ -29,7 +29,8 @@ var b_coin_chart = {
     });
     this.get_list(window.aid, 1);
   },
-  get_list: function(av, page, _this = this){
+  get_list: function(av, page, _this){
+    if(!_this) _this = this;
     $.get("http://www.bilibili.com/plus/comment.php?aid="+ av +"&page=" + page, onload);
     function onload(res){
       res = "<div>" + res + "</div>";
@@ -100,7 +101,8 @@ var b_coin_chart = {
         .replace("{user}", user);
     }
   },
-  chart_view: function(fv = 10){//取fv分钟为一组数据
+  chart_view: function(fv){//取fv分钟为一组数据
+    if(!fv) fv = 10;
     var chart_data = {
       labels: [],
       data: []
