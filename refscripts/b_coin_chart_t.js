@@ -105,7 +105,8 @@ var b_coin_chart = {
     if(!fv) fv = 10;
     var chart_data = {
       labels: [],
-      data: []
+      data_coin: [],
+      data_score: []
     };
     var index = 0;
     var start = stosteamp(this.datas[this.datas.length-1].time);
@@ -114,12 +115,16 @@ var b_coin_chart = {
     for(var tt = start, i= this.datas.length - 1; tt < end && i >= 0;){
       var t = stosteamp(this.datas[i].time);
       if(t - tt <= fv){
-        chart_data.data[index] = chart_data.data[index] ? chart_data.data[index]+1 : 1;
+        if(this.datas[i].type == 1)
+          chart_data.data_coin[index] = chart_data.data_coin[index] ? chart_data.data_coin[index]+1 : 1;
+        else 
+          chart_data.data_score[index] = chart_data.data_score[index] ? chart_data.data_score[index]+1 : 1;
         i--;
       }
       else{
         chart_data.labels[index] = steamptos(tt) + "-" + steamptos(tt + fv).replace(/.*\s/, '');
-        chart_data.data[index] = chart_data.data[index] ? chart_data.data[index] : 0;
+        chart_data.data_coin[index] = chart_data.data_coin[index] ? chart_data.data_coin[index] : 0;
+        chart_data.data_score[index] = chart_data.data_score[index] ? chart_data.data_score[index] : 0;
         tt+=fv;
         index++;
       }
@@ -167,7 +172,7 @@ var b_coin_chart = {
         });
         view = document.getElementById("chart_view");
         view.style.height = "700px";
-        view.style.width = chart_data.data.length*20 + "px";
+        view.style.width = chart_data.labels.length*20 + "px";
         var myChart = echarts.init(view);
         var option = {
           title : {
@@ -178,7 +183,7 @@ var b_coin_chart = {
               trigger: 'axis'
           },
           legend: {
-              data:['硬币']
+              data:['硬币', '积分']
           },
           toolbox: {
               show : true,
@@ -212,7 +217,25 @@ var b_coin_chart = {
                   type:'line',
                   smooth:true,
                   itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                  data:chart_data.data,
+                  data:chart_data.data_coin,
+                  markPoint : {
+                      data : [
+                          {type : 'max', name: '最大值'},
+                          {type : 'min', name: '最小值'}
+                      ]
+                  },
+                  markLine : {
+                      data : [
+                          {type : 'average', name: '平均值'}
+                      ]
+                  }
+              },
+              {
+                  name:'该时间段累计积分评分次数',
+                  type:'line',
+                  smooth:true,
+                  itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                  data:chart_data.data_score,
                   markPoint : {
                       data : [
                           {type : 'max', name: '最大值'},
