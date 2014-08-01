@@ -166,7 +166,7 @@ var b_coin_chart = {
             </span>\
           </div>\
           <div style="text-align: left; margin-top: 10px;" >\
-            <span class="label label-danger">警告：当天数据只能精确到小时，所以值小于60会出现误差，如果要查看当天精确数据请第二天再统计（19小时以前的数据可以抓到分钟级别的精度）</span>\
+            <span class="label label-danger">警告：当天数据只能精确到小时，所以值小于60会出现误差，如果要查看当天精确数据请第二天再统计（第二天可以抓到前一天分钟级别的精度）</span>\
           </div>\
           <div id="chart_view"></div>'
           );
