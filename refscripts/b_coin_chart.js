@@ -102,7 +102,7 @@ var b_coin_chart = {
     }
   },
   chart_view: function(fv){//取fv分钟为一组数据
-    if(!fv) fv = 10;
+    if(!fv) fv = 60;
     var chart_data = {
       labels: [],
       data_coin: [],
