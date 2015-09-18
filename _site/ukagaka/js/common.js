@@ -303,7 +303,7 @@ var WCC = {
 
       //使用一言
       if(type === 1){
-        $.getScript("http://api.hitokoto.us/rand?encode=jsc&fun=WCC.hitokotoCallback");
+        $.getScript("https://api.hitokoto.us/rand?encode=jsc&fun=WCC.hitokotoCallback");
       }
       //默认说话
       else{

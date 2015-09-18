@@ -18,6 +18,7 @@
     <!-- Le styles -->
     <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -37,7 +38,7 @@
     <div class="navbar">
       <div class="navbar-inner">
        <div class="nav-narrow">
-          <a class="brand" href="/">某半靈的面包</a>
+          <a class="brand" href="/">半靈面包</a>
           <ul class="nav">
             
             
@@ -60,8 +61,12 @@
     
       
       	
-      	<li><a href="/tags.html">标签</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -75,12 +80,8 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/categories.html">文章分类</a></li>
+      	<li><a href="/tags.html">标签</a></li>
       	
       
     
@@ -115,49 +116,50 @@
           2014
           </div>
         </div>
+        <div class="post_title">
+          <h2>
+            <a href="/jekyll/2014/01/05/jekyll-%E4%BC%AA%E6%98%A5%E8%8F%9C">Jekyll 伪春菜</a>
+          </h2>
+        </div>
       </div>
-      <h1>在jkyll中使用伪春菜</h1>
-
-<h2>准备</h2>
+      <h2>准备</h2>
 
 <p>下载伪春菜静态实现到你的github io项目的根目录<a href="https://github.com/DrayChou/ukagaka/">DrayChou/ukagaka/</a></p>
 
 <p>我的项目目录在<code>～/github/imyon.github.io/</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd ～/github/imyon.github.io/
 $ git clone https://github.com/DrayChou/ukagaka/
 </code></pre></div>
 <h3>修改wcc.js文件</h3>
 
 <p>进入伪春菜目录：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ukagaka
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd ukagaka
 $ vim wcc.js;
 </code></pre></div>
 <p>搜索<code>http_base</code>修改该行为：;</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">http_base</span> <span class="o">=</span> <span class="s2">&quot;/ukagaka/&quot;</span><span class="p">;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http_base</span> <span class="o">=</span> <span class="s2">&quot;/ukagaka/&quot;</span><span class="p">;</span></code></pre></div>
 
 <!--break-->
 
 <h2>引入</h2>
 
 <p>进入主题的default.html文件，不同主题目录是不同的，我的是在<code>_includes/themes/twitter</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ..
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd ..
 $ cd _includes/themes/twitter
 $ vim default.html
 </code></pre></div>
 <p>在body结束前引入js</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
     ...
     <span class="c">&lt;!--引入伪春菜--&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/ukagaka/wcc.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/body&gt;</span></code></pre></div>
 
 <p>最后使用jekyll命令生成网站</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cd ～/github/imyon.github.io/
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd ～/github/imyon.github.io/
 $ jekyll build
 </code></pre></div>
 <p>ok,结束，访问网站即可看到效果</p>
@@ -215,7 +217,7 @@ $ jekyll build
       
         <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next"><a href="/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">后一篇 &rarr;</a></li>
+        <li class="next"><a href="/cpp/2014/01/09/c++-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">后一篇 &rarr;</a></li>
       
       </ul>
     </div>
@@ -249,7 +251,7 @@ var duoshuoQuery = {short_name:"myon"};
       </div>
       <hr>
       <footer class="card">
-        <p>&copy; 2014 myon
+        <p>&copy; 2015 myon
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
@@ -261,5 +263,5 @@ var duoshuoQuery = {short_name:"myon"};
   </body>
 </html>
 <script src="/assets/jquery/dist/jquery.js"></script>
-<script src="/ukagaka/wcc.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
 

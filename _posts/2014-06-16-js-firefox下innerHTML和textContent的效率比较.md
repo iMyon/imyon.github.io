@@ -4,10 +4,6 @@ category: js
 tags:	[js]
 ---
 
-##firefox下innerHTML和textContent的效率比较  
-
-###说明
-
 写脚本用到，顺便测了下两者的效率。
 
 <!--break-->

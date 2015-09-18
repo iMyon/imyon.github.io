@@ -18,6 +18,7 @@
     <!-- Le styles -->
     <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -37,7 +38,7 @@
     <div class="navbar">
       <div class="navbar-inner">
        <div class="nav-narrow">
-          <a class="brand" href="/">某半靈的面包</a>
+          <a class="brand" href="/">半靈面包</a>
           <ul class="nav">
             
             
@@ -60,8 +61,12 @@
     
       
       	
-      	<li><a href="/tags.html">标签</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -75,12 +80,8 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/categories.html">文章分类</a></li>
+      	<li><a href="/tags.html">标签</a></li>
       	
       
     
@@ -115,10 +116,13 @@
           2014
           </div>
         </div>
+        <div class="post_title">
+          <h2>
+            <a href="/cpp/2014/01/11/c++-reverse()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95">C++ Reverse()函数的用法</a>
+          </h2>
+        </div>
       </div>
-      <h1>c++中的std::reverse函数</h1>
-
-<h3>参考资料</h3>
+      <h3>参考资料</h3>
 
 <p><a href="http://en.cppreference.com/w/cpp/algorithm/reverse">std::reverse</a></p>
 
@@ -137,7 +141,7 @@
 <h3>简单例子</h3>
 
 <h5>普通数组</h5>
-<div class="highlight"><pre><code class="c++ language-c++" data-lang="c++"><span class="cm">/**</span>
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span class="cm">/**</span>
 <span class="cm"> * C/C++ File</span>
 <span class="cm"> *Filename: reverse_array.cpp</span>
 <span class="cm"> *Created: 2014-01-11 03:06:27</span>
@@ -165,10 +169,10 @@
 <span class="p">}</span>
 </code></pre></div>
 <h6>输出：</h6>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">4 3 2 1 0 5 6 7 8 9
+<div class="highlight"><pre><code class="language-text" data-lang="text">4 3 2 1 0 5 6 7 8 9
 </code></pre></div>
 <h5>STL容器：</h5>
-<div class="highlight"><pre><code class="c++ language-c++" data-lang="c++"><span class="cm">/**</span>
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span class="cm">/**</span>
 <span class="cm"> * C/C++ File</span>
 <span class="cm"> *Filename: reverse_container.cpp</span>
 <span class="cm"> *Created: 2014-01-11 03:21:17</span>
@@ -198,7 +202,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h6>输出：</h6>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">9 8 7 6 5 4 3 2 1 0
+<div class="highlight"><pre><code class="language-text" data-lang="text">9 8 7 6 5 4 3 2 1 0
 </code></pre></div>
     </div>
 
@@ -245,7 +249,7 @@
     <div class="pagination card clearfix">
       <ul class = "pull-right">
       
-        <li class="prev"><a href="/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">&larr; 前一篇</a></li>
+        <li class="prev"><a href="/cpp/2014/01/09/c++-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray" title="C++ Boost学习之array">&larr; 前一篇</a></li>
       
         <li><a href="/archive.html">所有日志</a></li>
       
@@ -283,7 +287,7 @@ var duoshuoQuery = {short_name:"myon"};
       </div>
       <hr>
       <footer class="card">
-        <p>&copy; 2014 myon
+        <p>&copy; 2015 myon
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
@@ -295,5 +299,5 @@ var duoshuoQuery = {short_name:"myon"};
   </body>
 </html>
 <script src="/assets/jquery/dist/jquery.js"></script>
-<script src="/ukagaka/wcc.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
 

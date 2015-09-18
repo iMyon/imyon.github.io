@@ -4,7 +4,7 @@ category: cpp
 tags: [boost,array]
 ---
 
-#boost中的array
+##boost中的array
 
 ###参考资料;
 

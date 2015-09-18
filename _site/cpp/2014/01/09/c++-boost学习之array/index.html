@@ -18,6 +18,7 @@
     <!-- Le styles -->
     <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -37,7 +38,7 @@
     <div class="navbar">
       <div class="navbar-inner">
        <div class="nav-narrow">
-          <a class="brand" href="/">某半靈的面包</a>
+          <a class="brand" href="/">半靈面包</a>
           <ul class="nav">
             
             
@@ -60,8 +61,12 @@
     
       
       	
-      	<li><a href="/tags.html">标签</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -75,12 +80,8 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/categories.html">文章分类</a></li>
+      	<li><a href="/tags.html">标签</a></li>
       	
       
     
@@ -115,8 +116,13 @@
           2014
           </div>
         </div>
+        <div class="post_title">
+          <h2>
+            <a href="/cpp/2014/01/09/c++-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray">C++ Boost学习之array</a>
+          </h2>
+        </div>
       </div>
-      <h1>boost中的array</h1>
+      <h2>boost中的array</h2>
 
 <h3>参考资料;</h3>
 
@@ -142,9 +148,9 @@ boost.array应运而生</p>
 <p><code>&lt;boost/array.hpp&gt;</code></p>
 
 <h3>Array头文件声明</h3>
-<div class="highlight"><pre><code class="c++ language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span> 
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span> 
 <span class="k">class</span> <span class="nc">array</span> <span class="p">{</span>
-<span class="nl">public:</span>
+<span class="k">public</span><span class="o">:</span>
   <span class="c1">// types</span>
   <span class="k">typedef</span> <span class="n">T</span>                                     <span class="n">value_type</span><span class="p">;</span>            
   <span class="k">typedef</span> <span class="n">T</span><span class="o">*</span>                                    <span class="n">iterator</span><span class="p">;</span>              
@@ -225,7 +231,7 @@ boost.array应运而生</p>
 </blockquote>
 
 <h3>代码练习</h3>
-<div class="highlight"><pre><code class="c++ language-c++" data-lang="c++"><span class="cm">/**</span>
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span class="cm">/**</span>
 <span class="cm"> * C/C++ File</span>
 <span class="cm"> *Filename: baseUse.cpp</span>
 <span class="cm"> *Created: 2014-01-09 18:25:24</span>
@@ -362,7 +368,7 @@ boost.array应运而生</p>
       
         <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next"><a href="/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95" title="C++ Reverse()函数的用法">后一篇 &rarr;</a></li>
+        <li class="next"><a href="/cpp/2014/01/11/c++-reverse()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95" title="C++ Reverse()函数的用法">后一篇 &rarr;</a></li>
       
       </ul>
     </div>
@@ -396,7 +402,7 @@ var duoshuoQuery = {short_name:"myon"};
       </div>
       <hr>
       <footer class="card">
-        <p>&copy; 2014 myon
+        <p>&copy; 2015 myon
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
@@ -408,5 +414,5 @@ var duoshuoQuery = {short_name:"myon"};
   </body>
 </html>
 <script src="/assets/jquery/dist/jquery.js"></script>
-<script src="/ukagaka/wcc.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
 

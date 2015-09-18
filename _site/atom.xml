@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>某半靈的面包</title>
+ <title>半靈面包</title>
  <link href="http://iMyon.github.io/" rel="self"/>
  <link href="http://iMyon.github.io"/>
- <updated>2014-05-03T19:32:13+08:00</updated>
+ <updated>2015-09-17T22:34:26-04:00</updated>
  <id>http://iMyon.github.io</id>
  <author>
    <name>myon</name>
@@ -13,13 +13,434 @@
 
  
  <entry>
+   <title>Java Java web之web.xml</title>
+   <link href="http://iMyon.github.io/java/2015/09/17/java-Java%20web%E4%B9%8Bweb.xml"/>
+   <updated>2015-09-17T00:00:00-04:00</updated>
+   <id>http://iMyon.github.io/java/2015/09/17/java-Java web之web.xml</id>
+   <content type="html">&lt;p&gt;web.xml简单来说就是java web应用用来处理web请求的一个配置文件&lt;/p&gt;
+
+&lt;h3&gt;一个简单的例子&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;web-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;2.5&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- servlet-name只是一个servlet的标识符，随意 --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;sample&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 用来处理sample这个sevlet的java类 --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-class&amp;gt;&lt;/span&gt;mysite.server.SampleServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-class&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- sample的sevlet映射 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;sample&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 所有请求都映射到sample这个setvlet --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/web-app&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;!--break--&gt;
+
+&lt;p&gt;以上配置将所有请求都映射到sample这个servlet，即交给mysite.server.SampleServlet处理&lt;/p&gt;
+
+&lt;h3&gt;servlet标签的其他属性：&lt;/h3&gt;
+
+&lt;h4&gt;init-param&lt;/h4&gt;
+
+&lt;p&gt;例：   &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;redteam&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-class&amp;gt;&lt;/span&gt;mysite.server.TeamServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-class&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;teamColor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;red&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;bgColor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;#CC0000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;init-param设置的值可以通过以下语句获取&lt;br&gt;
+&lt;code&gt;String teamColor = getServletConfig().getInitParameter(&amp;quot;teamColor&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;jsp-file&lt;/h4&gt;
+
+&lt;p&gt;直接映射URL到jsp文件（servlet-class是映射到servlet类）&lt;br&gt;
+例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;register&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;jsp-file&amp;gt;&lt;/span&gt;/register/start.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/jsp-file&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;register&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/register/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;load-on-startup&lt;/h4&gt;
+
+&lt;p&gt;应用启动时该servlet的加载顺序，值越小加载顺序越靠前&lt;/p&gt;
+
+&lt;p&gt;访问&lt;code&gt;/register/*&lt;/code&gt;直接转到&lt;code&gt;/register/start.jsp&lt;/code&gt;处理&lt;/p&gt;
+
+&lt;h3&gt;关于taglib&lt;/h3&gt;
+
+&lt;p&gt;jsp2.0之后不需要显示声明taglib，它会自动搜寻，搜寻目录： &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;appName&amp;gt;/WEB-INF&lt;/code&gt;及其子目录&lt;/li&gt;
+&lt;li&gt;jar包下的&lt;code&gt;META-INF&lt;/code&gt;目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;context-param&lt;/h3&gt;
+
+&lt;p&gt;顶层标签，和&lt;code&gt;init-param&lt;/code&gt;类似，不过&lt;code&gt;context-param&lt;/code&gt;作用域为整个web项目，而&lt;code&gt;init-param&lt;/code&gt;只作用在它所在的servlet。&lt;br&gt;
+例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;The email address of the administrator, used to send error reports.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;webmaster&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;address@somedomain.com&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;通过以下语句可以获取值：&lt;br&gt;
+&lt;code&gt;String value = getServletContext().getInitParameter(&amp;quot;webmaster&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;env-entry&lt;/h3&gt;
+
+&lt;p&gt;配置JNDI的访问资源，例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;env-entry&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;env-entry-name&amp;gt;&lt;/span&gt;webmasterEmail&lt;span class=&quot;nt&quot;&gt;&amp;lt;/env-entry-name&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;env-entry-type&amp;gt;&lt;/span&gt;java.lang.String&lt;span class=&quot;nt&quot;&gt;&amp;lt;/env-entry-type&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;env-entry-value&amp;gt;&lt;/span&gt;admin@domain.com&lt;span class=&quot;nt&quot;&gt;&amp;lt;/env-entry-value&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/env-entry&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;取值：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; &lt;span class=&quot;c1&quot;&gt;// 获取JNDI上下文&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InitialContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;java:comp/env&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 获取配置文件的值&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webmasterEmail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;webmasterEmail&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;filter&lt;/h3&gt;
+
+&lt;p&gt;顶层标签， 简单来说serlvet中的filter就是一个中间件的作用，它不是用于处理请求和响应，而是用来过滤的，如果设置了filter，那么该请求和响应之前都要先通过filter。它的主要作用一般是权限控制、编码转换、请求响应头修改等。  例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;Set Character Encoding&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-class&amp;gt;&lt;/span&gt;filters.SetCharacterEncodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-class&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;encoding&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;EUC_JP&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;Set Character Encoding&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;给每个页面加上编码处理，通过filters.SetCharacterEncodingFilter这个java类实现  &lt;/p&gt;
+
+&lt;h3&gt;listener&lt;/h3&gt;
+
+&lt;p&gt;顶层标签，用于定义Listener，jsp的Listener主要用来监听各种特定事件，比如监听session的销毁和创建，例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;listener-class&amp;gt;&lt;/span&gt;com.metawerx.listener.ContextListener&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener-class&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;listener-class&amp;gt;&lt;/span&gt;com.metawerx.listener.SessionListener&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener-class&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;安全管理&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;security-role&lt;/code&gt;、&lt;code&gt;security-constraint&lt;/code&gt;和&lt;code&gt;login-config&lt;/code&gt;标签，可以不通过编程限制某个资源的访问权限和强制SSL，&lt;/p&gt;
+
+&lt;h3&gt;error-page&lt;/h3&gt;
+
+&lt;p&gt;页面出错跳转页面， 例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 页面404时跳转 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;error-page&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;error-code&amp;gt;&lt;/span&gt;404&lt;span class=&quot;nt&quot;&gt;&amp;lt;/error-code&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;location&amp;gt;&lt;/span&gt;/error404.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/location&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/error-page&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 根据错误类型跳转到不同页面，Throwable为所有错误 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;error-page&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;exception-type&amp;gt;&lt;/span&gt;java.lang.Throwable&lt;span class=&quot;nt&quot;&gt;&amp;lt;/exception-type&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;location&amp;gt;&lt;/span&gt;/errorThrowable.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/location&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/error-page&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;mime-mapping&lt;/h3&gt;
+
+&lt;p&gt;资源扩展名和mine-type的映射关系，访问一个应用未知扩展名文件的时候，一般应用会默认使用纯文本（即&lt;code&gt;text/plain&lt;/code&gt;）的方式打开，如果想要改成下载，就要改变mine-type映射关系，例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;mime-mapping&amp;gt;&lt;/span&gt; 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;extension&amp;gt;&lt;/span&gt;pqz&lt;span class=&quot;nt&quot;&gt;&amp;lt;/extension&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mime-type&amp;gt;&lt;/span&gt;application/octet-stream&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mime-type&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mime-mapping&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://tool.oschina.net/commons&quot;&gt;mine-type对照表&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;welcome-file-list&lt;/h3&gt;
+
+&lt;p&gt;访问目录根目录时默认访问的文件，比如访问&lt;code&gt;http://localhost/&lt;/code&gt;自动到&lt;code&gt;http://localhost/index.jsp&lt;/code&gt;，例：  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file-list&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file&amp;gt;&lt;/span&gt;index.html&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file&amp;gt;&lt;/span&gt;index.htm&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file&amp;gt;&lt;/span&gt;index.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file-list&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;参考资料&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://wiki.metawerx.net/wiki/Web.xml&quot;&gt;web.xml Reference Guide for Tomcat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Js Firefox下innerhtml和textcontent的效率比较</title>
+   <link href="http://iMyon.github.io/js/2014/06/16/js-firefox%E4%B8%8BinnerHTML%E5%92%8CtextContent%E7%9A%84%E6%95%88%E7%8E%87%E6%AF%94%E8%BE%83"/>
+   <updated>2014-06-16T00:00:00-04:00</updated>
+   <id>http://iMyon.github.io/js/2014/06/16/js-firefox下innerHTML和textContent的效率比较</id>
+   <content type="html">&lt;p&gt;写脚本用到，顺便测了下两者的效率。&lt;/p&gt;
+
+&lt;!--break--&gt;
+
+&lt;h3&gt;测试代码&lt;/h3&gt;
+
+&lt;h4&gt;一、多节点测试&lt;/h4&gt;
+
+&lt;h5&gt;测试方法：通过测试body的innerHTML和textContent，比较两者的耗时&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//计时开始&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//计时结束并调用回调函数&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//回调函数参数：结束时间减去开始时间（毫秒）&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;innerHTML耗时:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;毫秒&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;textContent耗时:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;毫秒&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;输出：&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;innerHTML耗时: 512 毫秒
+textContent耗时: 39 毫秒
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;二、单节点测试&lt;/h4&gt;
+
+&lt;h5&gt;测试方法：通过测试document.title的innerHTML和textContent，比较两者的耗时&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//计时开始&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//计时结束并调用回调函数&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//回调函数参数：结束时间减去开始时间（毫秒）&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;innerHTML耗时:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;毫秒&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;textContent耗时:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;毫秒&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;输出：&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;innerHTML耗时: 308 毫秒
+textContent耗时: 329 毫秒
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;结论&lt;/h3&gt;
+
+&lt;p&gt;当元素下面有很多子节点时，textContent的效率远远高于innerHTML&lt;br&gt;
+当元素下面没有子节点的时候，innerHTML效率略高于textContent  &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Acg 藤宫ゆき无损资源集</title>
+   <link href="http://iMyon.github.io/acg/2014/06/02/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86"/>
+   <updated>2014-06-02T00:00:00-04:00</updated>
+   <id>http://iMyon.github.io/acg/2014/06/02/acg-藤宫ゆき无损资源集</id>
+   <content type="html">&lt;h4&gt;说明&lt;/h4&gt;
+
+&lt;p&gt;个人整理，资源来自网络.
+原来的链接用的是bae，2月开始收费，链接应该会失效。
+为了方便编辑补档，文章就放在这边了&lt;/p&gt;
+
+&lt;!--break--&gt;
+
+&lt;h4&gt;下载地址&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/s/1mgmfeti&quot;&gt;度盘无损&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;资源详情&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3843996478&quot;&gt;最強！Ice Fairy.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=657745858&quot;&gt;箒星.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1055142662&quot;&gt;月の旋律.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=780094147&quot;&gt;月の旋律 - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=226469718&quot;&gt;月の律動 (デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3950286367&quot;&gt;月のシンフォニー.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1025155638942227&quot;&gt;雨上がりのメロディ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2529193257&quot;&gt;雨降りアンブレラ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1292928289&quot;&gt;雨帰り.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=176072486&quot;&gt;雨帰り - 東方絢彩歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=935190334810465&quot;&gt;有頂天ハート.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2406652815&quot;&gt;永遠のメロディ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3631317738&quot;&gt;永遠のメロディ - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3718728630&quot;&gt;永遠のメロディ - 東方逢千歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=516530458&quot;&gt;桜風.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3203152315&quot;&gt;桜風 - 東方スプラッシュ！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2494800425&quot;&gt;翼なき詩.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=360764987908057&quot;&gt;夜桜ファンタジー.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1407757845&quot;&gt;夜雀のバラッド.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=256604664&quot;&gt;星色夜空.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=470868673353091&quot;&gt;星になって ～Missing you～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2079710079&quot;&gt;宵月物語.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1689167963&quot;&gt;宵月物語 - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=134508883&quot;&gt;宵月物語 - 東方絢彩歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1165113369&quot;&gt;夏ノ恋ウタ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=607424785&quot;&gt;夏が終わるまでに.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1093418455&quot;&gt;舞桜.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=328489953&quot;&gt;望郷.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2458094370&quot;&gt;聖モラリスティック.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=773452610&quot;&gt;聖モラリスティック - 東方星聖歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=662987477&quot;&gt;色彩少女.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1492404443&quot;&gt;色彩少女 - 東方彗麗歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=35919439&quot;&gt;秋茜の空.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3889180512&quot;&gt;祈りの刃.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2146891277&quot;&gt;夢中☆物語.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1018645550&quot;&gt;旅路 ～Power of Life～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3321064067&quot;&gt;旅路 ～Power of Life.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2711401856&quot;&gt;路 ～Color on the wall～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2936459569&quot;&gt;朧夜の月.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1893135346&quot;&gt;恋風 ～Theme～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2226366644&quot;&gt;恋のりふれーん☆.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=445043144&quot;&gt;恋のフレイム.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2394648426&quot;&gt;恋のフレイム - 東方彗麗歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1225175721&quot;&gt;境界ファンタジア.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1074093497&quot;&gt;境界ファンタジア ～Anthology～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3713416154&quot;&gt;境界ファンタジア - 東方逢千歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3508370096&quot;&gt;花風 ～Hanakaze～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3544337060&quot;&gt;紅音の瞳～Sound of Red Eye～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3382184511&quot;&gt;紅音の瞳 ～Sound of Red Eye～ (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2054239439&quot;&gt;紅き夜の花 (デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=563994578&quot;&gt;紅い月 ～Story of Scarlett～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1042439723&quot;&gt;紅い月 ～Story of Scarlett～ - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2709688377&quot;&gt;河童の水恋歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2543741562&quot;&gt;風を超えて～Flying～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=69522161&quot;&gt;風の記憶.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3881392349&quot;&gt;風の春秋 (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=951707343661541&quot;&gt;仮面のエモーション.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=38470778&quot;&gt;冬のフリーズ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3105919121&quot;&gt;春待つ雪.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=601364890&quot;&gt;春の暁.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=277533237&quot;&gt;虫籠のFairy.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1892506433&quot;&gt;参道のセレナーデ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1127185444&quot;&gt;彩声 ～Bird can sing～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2223192280&quot;&gt;彩風～Ayakaze～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1217892978&quot;&gt;彩風～Ayakaze～(デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3502715843&quot;&gt;彩風 -Ayakaze-.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=746135497&quot;&gt;氷結娘.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1374196922&quot;&gt;氷結娘 - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3704615654&quot;&gt;氷結娘 - 東方スプラッシュ！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2943740841&quot;&gt;闇夜のファクター (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3510995230&quot;&gt;みつあみの猫.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=362849784&quot;&gt;みっしんぐパワー！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=32580132&quot;&gt;ボーナス・トラック・トーク.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=764253127&quot;&gt;ハッピー☆サンデー.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=852391262&quot;&gt;ハッピー☆サンデー - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2956933171&quot;&gt;ティーカップ・スター.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2812150583&quot;&gt;ダウジングラブ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=108358181&quot;&gt;スキマツアーズ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3905280308&quot;&gt;スキマイロ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=4027443857&quot;&gt;スキマイロ - いえろ～ぜぶら　べすとあるばむ Vol.3 Disc2.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3600196571&quot;&gt;さよならスプートニク.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=91765574&quot;&gt;ここに立つ花.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2061258490&quot;&gt;おれんぢ☆でぃず.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2647661398&quot;&gt;おれんぢ☆でぃず - 東方星聖歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3139878908&quot;&gt;いろはにほへと.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3507908120&quot;&gt;イロイロ.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3064731430&quot;&gt;Words Are.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3800874865&quot;&gt;Voyage.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3690442234&quot;&gt;Unknown Tour.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3190021740&quot;&gt;Tinker bell.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3677749029&quot;&gt;Teenage Girl.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3451743769&quot;&gt;Starry Night.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=523813510&quot;&gt;Starry Light.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=471724294&quot;&gt;Shooting Star.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1403514669&quot;&gt;Shooting Star - いえろ～ぜぶら べすとあるばむ 1 DISC2.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=187086731&quot;&gt;Shooting Love.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3798699014&quot;&gt;Shining Star.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2929321517&quot;&gt;Shining Star - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=639102759&quot;&gt;She&amp;#39;s a Star.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=538347988&quot;&gt;Red Moonlight Septet.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=435031996&quot;&gt;Prism Love.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2799169477&quot;&gt;PASTY GIRL.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2082507466&quot;&gt;Nowhere Girl.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2813992312&quot;&gt;Nowhere Girl - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1035317115&quot;&gt;Moonlight Septet.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=827356715&quot;&gt;Melody！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=393206454&quot;&gt;Melody!.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2256085782&quot;&gt;Magic Omen.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1759053765&quot;&gt;Magic Magic！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=928075013&quot;&gt;Luna History ～真月～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1887746876&quot;&gt;Last Day Never Knows.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=323356695&quot;&gt;Journey.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=4096018220&quot;&gt;I Know.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3952738039&quot;&gt;I know - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1793764767&quot;&gt;Girls Keep a Secret.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2752292377&quot;&gt;FLAPPING.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1909823452&quot;&gt;Elfin Love.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2648332735&quot;&gt;Dreamin&amp;#39;Dreamer.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2875413773&quot;&gt;Dreamin&amp;#39;, Wonder, Flowering tonight.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2676770239&quot;&gt;Dive Into My Sea.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=420899477&quot;&gt;Darling Star.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3792608930&quot;&gt;Darling Star - 東方輪衝歌 ～Moment of Impulse～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1862012138&quot;&gt;BLUE.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1435327651&quot;&gt;BLUE - 東方輪衝歌 ～Moment of Impulse～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=1580717735&quot;&gt;Blind New.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2376390122&quot;&gt;Believe heart！.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=442760675&quot;&gt;Believe heart!.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3769124399&quot;&gt;Autumn Stream ～恋し秋～.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=2014830718&quot;&gt;Autumn Stream ～恋し秋～ - いえろ～ぜぶら　べすとあるばむ Vol.2 Disc2.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=3064114565&quot;&gt;9,999,999 years.flac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=1707683014&amp;amp;fid=800573179&quot;&gt;13 Billion stars.flac&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Js Event属性target和currenttarget的区别</title>
    <link href="http://iMyon.github.io/js/2014/03/27/js-event%E5%B1%9E%E6%80%A7target%E5%92%8CcurrentTarget%E7%9A%84%E5%8C%BA%E5%88%AB"/>
-   <updated>2014-03-27T00:00:00+08:00</updated>
+   <updated>2014-03-27T00:00:00-04:00</updated>
    <id>http://iMyon.github.io/js/2014/03/27/js-event属性target和currentTarget的区别</id>
-   <content type="html">&lt;h1&gt;js中的target和currentTarget&lt;/h1&gt;
-
-&lt;h3&gt;w3c描述&lt;/h3&gt;
+   <content type="html">&lt;h3&gt;w3c描述&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。&lt;/p&gt;
@@ -33,7 +454,7 @@
 &lt;!--break--&gt;
 
 &lt;h3&gt;简单例子&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c_getEventTrigger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
   &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;currentTarget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
@@ -114,11 +535,9 @@ function t_getEventTrigger(event)
  <entry>
    <title>Github 解决github网页一直在加载的问题</title>
    <link href="http://iMyon.github.io/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98"/>
-   <updated>2014-03-24T00:00:00+08:00</updated>
+   <updated>2014-03-24T00:00:00-04:00</updated>
    <id>http://iMyon.github.io/github/2014/03/24/github-解决github网页一直在加载的问题</id>
-   <content type="html">&lt;h1&gt;hosts解决github网页一直加载问题&lt;/h1&gt;
-
-&lt;h3&gt;问题描述&lt;/h3&gt;
+   <content type="html">&lt;h3&gt;问题描述&lt;/h3&gt;
 
 &lt;p&gt;github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host&lt;/p&gt;
 
@@ -127,7 +546,7 @@ function t_getEventTrigger(event)
 &lt;h3&gt;解决方法&lt;/h3&gt;
 
 &lt;p&gt;找到系统的hosts文件，添加下面的代码&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;192.30.252.128 github.com
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;192.30.252.128 github.com
 199.27.79.133 raw.github.com
 199.27.79.133 raw2.github.com
 192.30.252.141 gist.github.com
@@ -148,166 +567,11 @@ function t_getEventTrigger(event)
  </entry>
  
  <entry>
-   <title>Acg 藤宫ゆき无损资源集</title>
-   <link href="http://iMyon.github.io/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86"/>
-   <updated>2014-01-25T00:00:00+08:00</updated>
-   <id>http://iMyon.github.io/acg/2014/01/25/acg-藤宫ゆき无损资源集</id>
-   <content type="html">&lt;h1&gt;藤宫娘的无损歌曲&lt;/h1&gt;
-
-&lt;h4&gt;说明&lt;/h4&gt;
-
-&lt;p&gt;个人整理，资源来自网络.
-原来的链接用的是bae，2月开始收费，链接应该会失效。
-为了方便编辑补档，文章就放在这边了&lt;/p&gt;
-
-&lt;!--break--&gt;
-
-&lt;h4&gt;下载地址&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/s/1jGDPs0I#dir/path=%2F%E5%85%B1%E4%BA%AB%2F%E9%9F%B3%E4%B9%90%2F%E4%B8%9C%E6%96%B9%2FARTIST%2F%E8%97%A4%E5%AE%AB%E5%A8%98&quot;&gt;度盘无损&lt;/a&gt;
-   &lt;a href=&quot;http://pan.baidu.com/s/1o6JMJ6U&quot;&gt;度盘320k&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4&gt;资源详情&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3843996478&quot;&gt;最強！Ice Fairy.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=657745858&quot;&gt;箒星.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1055142662&quot;&gt;月の旋律.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=780094147&quot;&gt;月の旋律 - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=226469718&quot;&gt;月の律動 (デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3950286367&quot;&gt;月のシンフォニー.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2529193257&quot;&gt;雨降りアンブレラ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1292928289&quot;&gt;雨帰り.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=176072486&quot;&gt;雨帰り - 東方絢彩歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2406652815&quot;&gt;永遠のメロディ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3631317738&quot;&gt;永遠のメロディ - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3718728630&quot;&gt;永遠のメロディ - 東方逢千歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=516530458&quot;&gt;桜風.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3203152315&quot;&gt;桜風 - 東方スプラッシュ！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2494800425&quot;&gt;翼なき詩.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1407757845&quot;&gt;夜雀のバラッド.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=256604664&quot;&gt;星色夜空.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2079710079&quot;&gt;宵月物語.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1689167963&quot;&gt;宵月物語 - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=134508883&quot;&gt;宵月物語 - 東方絢彩歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1165113369&quot;&gt;夏ノ恋ウタ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=607424785&quot;&gt;夏が終わるまでに.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1093418455&quot;&gt;舞桜.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=328489953&quot;&gt;望郷.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2458094370&quot;&gt;聖モラリスティック.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=773452610&quot;&gt;聖モラリスティック - 東方星聖歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=662987477&quot;&gt;色彩少女.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1492404443&quot;&gt;色彩少女 - 東方彗麗歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=35919439&quot;&gt;秋茜の空.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3889180512&quot;&gt;祈りの刃.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2146891277&quot;&gt;夢中☆物語.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1018645550&quot;&gt;旅路 ～Power of Life～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3321064067&quot;&gt;旅路 ～Power of Life.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2711401856&quot;&gt;路 ～Color on the wall～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2936459569&quot;&gt;朧夜の月.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1893135346&quot;&gt;恋風 ～Theme～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2226366644&quot;&gt;恋のりふれーん☆.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=445043144&quot;&gt;恋のフレイム.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2394648426&quot;&gt;恋のフレイム - 東方彗麗歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1225175721&quot;&gt;境界ファンタジア.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1074093497&quot;&gt;境界ファンタジア ～Anthology～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3713416154&quot;&gt;境界ファンタジア - 東方逢千歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3508370096&quot;&gt;花風 ～Hanakaze～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3544337060&quot;&gt;紅音の瞳～Sound of Red Eye～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3382184511&quot;&gt;紅音の瞳 ～Sound of Red Eye～ (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2054239439&quot;&gt;紅き夜の花 (デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=563994578&quot;&gt;紅い月 ～Story of Scarlett～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1042439723&quot;&gt;紅い月 ～Story of Scarlett～ - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2709688377&quot;&gt;河童の水恋歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2543741562&quot;&gt;風を超えて～Flying～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=69522161&quot;&gt;風の記憶.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3881392349&quot;&gt;風の春秋 (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=38470778&quot;&gt;冬のフリーズ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3105919121&quot;&gt;春待つ雪.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=601364890&quot;&gt;春の暁.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=277533237&quot;&gt;虫籠のFairy.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1892506433&quot;&gt;参道のセレナーデ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1127185444&quot;&gt;彩声 ～Bird can sing～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2223192280&quot;&gt;彩風～Ayakaze～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1217892978&quot;&gt;彩風～Ayakaze～(デュエットVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3502715843&quot;&gt;彩風 -Ayakaze-.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=746135497&quot;&gt;氷結娘.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1374196922&quot;&gt;氷結娘 - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3704615654&quot;&gt;氷結娘 - 東方スプラッシュ！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2943740841&quot;&gt;闇夜のファクター (藤宮ゆきVer).flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3510995230&quot;&gt;みつあみの猫.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=362849784&quot;&gt;みっしんぐパワー！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=32580132&quot;&gt;ボーナス・トラック・トーク.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=764253127&quot;&gt;ハッピー☆サンデー.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=852391262&quot;&gt;ハッピー☆サンデー - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2956933171&quot;&gt;ティーカップ・スター.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2812150583&quot;&gt;ダウジングラブ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=108358181&quot;&gt;スキマツアーズ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3905280308&quot;&gt;スキマイロ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=4027443857&quot;&gt;スキマイロ - いえろ～ぜぶら　べすとあるばむ Vol.3 Disc2.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3600196571&quot;&gt;さよならスプートニク.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=91765574&quot;&gt;ここに立つ花.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2061258490&quot;&gt;おれんぢ☆でぃず.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2647661398&quot;&gt;おれんぢ☆でぃず - 東方星聖歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3139878908&quot;&gt;いろはにほへと.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3507908120&quot;&gt;イロイロ.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3064731430&quot;&gt;Words Are.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3800874865&quot;&gt;Voyage.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3690442234&quot;&gt;Unknown Tour.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3190021740&quot;&gt;Tinker bell.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3677749029&quot;&gt;Teenage Girl.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3451743769&quot;&gt;Starry Night.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=523813510&quot;&gt;Starry Light.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=471724294&quot;&gt;Shooting Star.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1403514669&quot;&gt;Shooting Star - いえろ～ぜぶら べすとあるばむ 1 DISC2.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=187086731&quot;&gt;Shooting Love.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3798699014&quot;&gt;Shining Star.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2929321517&quot;&gt;Shining Star - 東方月響歌.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=639102759&quot;&gt;She&amp;#39;s a Star.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=538347988&quot;&gt;Red Moonlight Septet.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=435031996&quot;&gt;Prism Love.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2799169477&quot;&gt;PASTY GIRL.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2082507466&quot;&gt;Nowhere Girl.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2813992312&quot;&gt;Nowhere Girl - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1035317115&quot;&gt;Moonlight Septet.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=827356715&quot;&gt;Melody！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=393206454&quot;&gt;Melody!.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2256085782&quot;&gt;Magic Omen.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1759053765&quot;&gt;Magic Magic！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=928075013&quot;&gt;Luna History ～真月～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1887746876&quot;&gt;Last Day Never Knows.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=323356695&quot;&gt;Journey.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=4096018220&quot;&gt;I Know.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3952738039&quot;&gt;I know - 東方染紅歌～Fate of Blood～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1793764767&quot;&gt;Girls Keep a Secret.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2752292377&quot;&gt;FLAPPING.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1909823452&quot;&gt;Elfin Love.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2648332735&quot;&gt;Dreamin&amp;#39;Dreamer.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2875413773&quot;&gt;Dreamin&amp;#39;, Wonder, Flowering tonight.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2676770239&quot;&gt;Dive Into My Sea.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=420899477&quot;&gt;Darling Star.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3792608930&quot;&gt;Darling Star - 東方輪衝歌 ～Moment of Impulse～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1862012138&quot;&gt;BLUE.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1435327651&quot;&gt;BLUE - 東方輪衝歌 ～Moment of Impulse～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=1580717735&quot;&gt;Blind New.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2376390122&quot;&gt;Believe heart！.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=442760675&quot;&gt;Believe heart!.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3769124399&quot;&gt;Autumn Stream ～恋し秋～.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.co%20m/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=2014830718&quot;&gt;Autumn Stream ～恋し秋～ - いえろ～ぜぶら　べすとあるばむ Vol.2 Disc2.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=3064114565&quot;&gt;9,999,999 years.flac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=958565640&amp;amp;shareid=3034238384&amp;amp;fid=800573179&quot;&gt;13 Billion stars.flac&lt;/a&gt; &lt;/li&gt;
-&lt;/ol&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Linux Linux合并flv视频并转成mp3格式</title>
    <link href="http://iMyon.github.io/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F"/>
-   <updated>2014-01-24T00:00:00+08:00</updated>
+   <updated>2014-01-24T00:00:00-05:00</updated>
    <id>http://iMyon.github.io/linux/2014/01/24/linux-linux合并flv视频并转成mp3格式</id>
-   <content type="html">&lt;h1&gt;linux合并flv视频并转换成mp3格式&lt;/h1&gt;
-
-&lt;h3&gt;参考文章&lt;/h3&gt;
+   <content type="html">&lt;h3&gt;参考文章&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://forum.ubuntu.org.cn/viewtopic.php?f=74&amp;amp;t=291041&amp;amp;start=0&quot;&gt;如何合并 flv 文件&lt;/a&gt; 6L&lt;/p&gt;
 
@@ -334,7 +598,7 @@ function t_getEventTrigger(event)
 &lt;/blockquote&gt;
 
 &lt;h3&gt;合并视频&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
 #以上为合并视频其中output.flv 是输出文件,x y z 是分段文件
 
 #转换成mp3格式
@@ -348,12 +612,10 @@ function t_getEventTrigger(event)
  
  <entry>
    <title>C++ Reverse()函数的用法</title>
-   <link href="http://iMyon.github.io/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95"/>
-   <updated>2014-01-11T00:00:00+08:00</updated>
+   <link href="http://iMyon.github.io/cpp/2014/01/11/c++-reverse()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95"/>
+   <updated>2014-01-11T00:00:00-05:00</updated>
    <id>http://iMyon.github.io/cpp/2014/01/11/c++-reverse()函数的用法</id>
-   <content type="html">&lt;h1&gt;c++中的std::reverse函数&lt;/h1&gt;
-
-&lt;h3&gt;参考资料&lt;/h3&gt;
+   <content type="html">&lt;h3&gt;参考资料&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://en.cppreference.com/w/cpp/algorithm/reverse&quot;&gt;std::reverse&lt;/a&gt;&lt;/p&gt;
 
@@ -372,7 +634,7 @@ function t_getEventTrigger(event)
 &lt;h3&gt;简单例子&lt;/h3&gt;
 
 &lt;h5&gt;普通数组&lt;/h5&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++ language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * C/C++ File&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Filename: reverse_array.cpp&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Created: 2014-01-11 03:06:27&lt;/span&gt;
@@ -400,10 +662,10 @@ function t_getEventTrigger(event)
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h6&gt;输出：&lt;/h6&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;4 3 2 1 0 5 6 7 8 9
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;4 3 2 1 0 5 6 7 8 9
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;STL容器：&lt;/h5&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++ language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * C/C++ File&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Filename: reverse_container.cpp&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Created: 2014-01-11 03:21:17&lt;/span&gt;
@@ -433,16 +695,16 @@ function t_getEventTrigger(event)
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h6&gt;输出：&lt;/h6&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;9 8 7 6 5 4 3 2 1 0
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;9 8 7 6 5 4 3 2 1 0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
  <entry>
    <title>C++ Boost学习之array</title>
-   <link href="http://iMyon.github.io/cpp/2014/01/09/c%2B%2B-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray"/>
-   <updated>2014-01-09T00:00:00+08:00</updated>
+   <link href="http://iMyon.github.io/cpp/2014/01/09/c++-boost%E5%AD%A6%E4%B9%A0%E4%B9%8Barray"/>
+   <updated>2014-01-09T00:00:00-05:00</updated>
    <id>http://iMyon.github.io/cpp/2014/01/09/c++-boost学习之array</id>
-   <content type="html">&lt;h1&gt;boost中的array&lt;/h1&gt;
+   <content type="html">&lt;h2&gt;boost中的array&lt;/h2&gt;
 
 &lt;h3&gt;参考资料;&lt;/h3&gt;
 
@@ -468,9 +730,9 @@ boost.array应运而生&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;boost/array.hpp&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3&gt;Array头文件声明&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++ language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
 &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// types&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;                                     &lt;span class=&quot;n&quot;&gt;value_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;            
   &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;                                    &lt;span class=&quot;n&quot;&gt;iterator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;              
@@ -551,7 +813,7 @@ boost.array应运而生&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3&gt;代码练习&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++ language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * C/C++ File&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Filename: baseUse.cpp&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *Created: 2014-01-09 18:25:24&lt;/span&gt;
@@ -644,50 +906,46 @@ boost.array应运而生&lt;/p&gt;
  <entry>
    <title>Jekyll 伪春菜</title>
    <link href="http://iMyon.github.io/jekyll/2014/01/05/jekyll-%E4%BC%AA%E6%98%A5%E8%8F%9C"/>
-   <updated>2014-01-05T00:00:00+08:00</updated>
+   <updated>2014-01-05T00:00:00-05:00</updated>
    <id>http://iMyon.github.io/jekyll/2014/01/05/jekyll-伪春菜</id>
-   <content type="html">&lt;h1&gt;在jkyll中使用伪春菜&lt;/h1&gt;
-
-&lt;h2&gt;准备&lt;/h2&gt;
+   <content type="html">&lt;h2&gt;准备&lt;/h2&gt;
 
 &lt;p&gt;下载伪春菜静态实现到你的github io项目的根目录&lt;a href=&quot;https://github.com/DrayChou/ukagaka/&quot;&gt;DrayChou/ukagaka/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;我的项目目录在&lt;code&gt;～/github/imyon.github.io/&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ～/github/imyon.github.io/
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ～/github/imyon.github.io/
 $ git clone https://github.com/DrayChou/ukagaka/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;修改wcc.js文件&lt;/h3&gt;
 
 &lt;p&gt;进入伪春菜目录：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ukagaka
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ukagaka
 $ vim wcc.js;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;搜索&lt;code&gt;http_base&lt;/code&gt;修改该行为：;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http_base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/ukagaka/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http_base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/ukagaka/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;!--break--&gt;
 
 &lt;h2&gt;引入&lt;/h2&gt;
 
 &lt;p&gt;进入主题的default.html文件，不同主题目录是不同的，我的是在&lt;code&gt;_includes/themes/twitter&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ..
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ..
 $ cd _includes/themes/twitter
 $ vim default.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;在body结束前引入js&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
     ...
     &lt;span class=&quot;c&quot;&gt;&amp;lt;!--引入伪春菜--&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://code.jquery.com/jquery.min.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/ukagaka/wcc.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;最后使用jekyll命令生成网站&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ～/github/imyon.github.io/
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cd ～/github/imyon.github.io/
 $ jekyll build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;ok,结束，访问网站即可看到效果&lt;/p&gt;

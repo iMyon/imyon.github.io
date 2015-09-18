@@ -18,6 +18,7 @@
     <!-- Le styles -->
     <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -37,7 +38,7 @@
     <div class="navbar">
       <div class="navbar-inner">
        <div class="nav-narrow">
-          <a class="brand" href="/">某半靈的面包</a>
+          <a class="brand" href="/">半靈面包</a>
           <ul class="nav">
             
             
@@ -60,8 +61,12 @@
     
       
       	
-      	<li><a href="/tags.html">标签</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -75,12 +80,8 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/categories.html">文章分类</a></li>
+      	<li><a href="/tags.html">标签</a></li>
       	
       
     
@@ -115,10 +116,13 @@
           2014
           </div>
         </div>
+        <div class="post_title">
+          <h2>
+            <a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98">Github 解决github网页一直在加载的问题</a>
+          </h2>
+        </div>
       </div>
-      <h1>hosts解决github网页一直加载问题</h1>
-
-<h3>问题描述</h3>
+      <h3>问题描述</h3>
 
 <p>github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host</p>
 
@@ -127,7 +131,7 @@
 <h3>解决方法</h3>
 
 <p>找到系统的hosts文件，添加下面的代码</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">192.30.252.128 github.com
+<div class="highlight"><pre><code class="language-text" data-lang="text">192.30.252.128 github.com
 199.27.79.133 raw.github.com
 199.27.79.133 raw2.github.com
 192.30.252.141 gist.github.com
@@ -190,7 +194,7 @@
     <div class="pagination card clearfix">
       <ul class = "pull-right">
       
-        <li class="prev"><a href="/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86" title="Acg 藤宫ゆき无损资源集">&larr; 前一篇</a></li>
+        <li class="prev"><a href="/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F" title="Linux Linux合并flv视频并转成mp3格式">&larr; 前一篇</a></li>
       
         <li><a href="/archive.html">所有日志</a></li>
       
@@ -228,7 +232,7 @@ var duoshuoQuery = {short_name:"myon"};
       </div>
       <hr>
       <footer class="card">
-        <p>&copy; 2014 myon
+        <p>&copy; 2015 myon
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
@@ -240,5 +244,5 @@ var duoshuoQuery = {short_name:"myon"};
   </body>
 </html>
 <script src="/assets/jquery/dist/jquery.js"></script>
-<script src="/ukagaka/wcc.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
 

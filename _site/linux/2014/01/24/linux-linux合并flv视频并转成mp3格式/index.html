@@ -18,6 +18,7 @@
     <!-- Le styles -->
     <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -37,7 +38,7 @@
     <div class="navbar">
       <div class="navbar-inner">
        <div class="nav-narrow">
-          <a class="brand" href="/">某半靈的面包</a>
+          <a class="brand" href="/">半靈面包</a>
           <ul class="nav">
             
             
@@ -60,8 +61,12 @@
     
       
       	
-      	<li><a href="/tags.html">标签</a></li>
+      	<li><a href="/categories.html">文章分类</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -75,12 +80,8 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/categories.html">文章分类</a></li>
+      	<li><a href="/tags.html">标签</a></li>
       	
       
     
@@ -115,10 +116,13 @@
           2014
           </div>
         </div>
+        <div class="post_title">
+          <h2>
+            <a href="/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F">Linux Linux合并flv视频并转成mp3格式</a>
+          </h2>
+        </div>
       </div>
-      <h1>linux合并flv视频并转换成mp3格式</h1>
-
-<h3>参考文章</h3>
+      <h3>参考文章</h3>
 
 <p><a href="http://forum.ubuntu.org.cn/viewtopic.php?f=74&amp;t=291041&amp;start=0">如何合并 flv 文件</a> 6L</p>
 
@@ -145,7 +149,7 @@
 </blockquote>
 
 <h3>合并视频</h3>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
+<div class="highlight"><pre><code class="language-text" data-lang="text">`mencoder -oac pcm -ovc copy -idx -o output.flv x.flv y.flv z.flv`
 #以上为合并视频其中output.flv 是输出文件,x y z 是分段文件
 
 #转换成mp3格式
@@ -204,11 +208,11 @@
     <div class="pagination card clearfix">
       <ul class = "pull-right">
       
-        <li class="prev"><a href="/cpp/2014/01/11/c%2B%2B-reverse%28%29%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95" title="C++ Reverse()函数的用法">&larr; 前一篇</a></li>
+        <li class="prev"><a href="/cpp/2014/01/11/c++-reverse()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95" title="C++ Reverse()函数的用法">&larr; 前一篇</a></li>
       
         <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next"><a href="/acg/2014/01/25/acg-%E8%97%A4%E5%AE%AB%E3%82%86%E3%81%8D%E6%97%A0%E6%8D%9F%E8%B5%84%E6%BA%90%E9%9B%86" title="Acg 藤宫ゆき无损资源集">后一篇 &rarr;</a></li>
+        <li class="next"><a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98" title="Github 解决github网页一直在加载的问题">后一篇 &rarr;</a></li>
       
       </ul>
     </div>
@@ -242,7 +246,7 @@ var duoshuoQuery = {short_name:"myon"};
       </div>
       <hr>
       <footer class="card">
-        <p>&copy; 2014 myon
+        <p>&copy; 2015 myon
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
@@ -254,5 +258,5 @@ var duoshuoQuery = {short_name:"myon"};
   </body>
 </html>
 <script src="/assets/jquery/dist/jquery.js"></script>
-<script src="/ukagaka/wcc.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
 

@@ -4,8 +4,6 @@ category: js
 tags:	[js,target,currentTarget]
 ---
 
-#js中的target和currentTarget
-
 ###w3c描述
 
 >target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。

@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Java Java web之web.xml</title>
+    
+    <meta name="author" content="myon">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/card-style//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/card-style//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/card-style//css/pygments.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+       <div class="nav-narrow">
+          <a class="brand" href="/">半靈面包</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">文章分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/rss.xml">RSS 订阅</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<!--
+<div class="page-header">
+  <h1>Java Java web之web.xml </h1>
+</div>
+-->
+
+<div class="row-fluid post-full">
+  <div class="span12 ">
+    <div class="content card">
+       <div class = "clearfix">
+        <div class="date_label">
+          <div class="day_month">
+          09/17
+          </div>
+          <div class="year">
+          2015
+          </div>
+        </div>
+        <div class="post_title">
+          <h2>
+            <a href="/java/2015/09/17/java-Java%20web%E4%B9%8Bweb.xml">Java Java web之web.xml</a>
+          </h2>
+        </div>
+      </div>
+      <p>web.xml简单来说就是java web应用用来处理web请求的一个配置文件</p>
+
+<h3>一个简单的例子</h3>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&quot;http://java.sun.com/xml/ns/javaee&quot;</span> <span class="na">version=</span><span class="s">&quot;2.5&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;servlet&gt;</span>
+        <span class="c">&lt;!-- servlet-name只是一个servlet的标识符，随意 --&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>sample<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="c">&lt;!-- 用来处理sample这个sevlet的java类 --&gt;</span>
+        <span class="nt">&lt;servlet-class&gt;</span>mysite.server.SampleServlet<span class="nt">&lt;/servlet-class&gt;</span>
+    <span class="nt">&lt;/servlet&gt;</span>
+    <span class="c">&lt;!-- sample的sevlet映射 --&gt;</span>
+    <span class="nt">&lt;servlet-mapping&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>sample<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="c">&lt;!-- 所有请求都映射到sample这个setvlet --&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;/servlet-mapping&gt;</span>
+<span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div>
+<!--break-->
+
+<p>以上配置将所有请求都映射到sample这个servlet，即交给mysite.server.SampleServlet处理</p>
+
+<h3>servlet标签的其他属性：</h3>
+
+<h4>init-param</h4>
+
+<p>例：   </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;servlet&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>redteam<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;servlet-class&gt;</span>mysite.server.TeamServlet<span class="nt">&lt;/servlet-class&gt;</span>
+    <span class="nt">&lt;init-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>teamColor<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>red<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+    <span class="nt">&lt;init-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>bgColor<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>#CC0000<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+</code></pre></div>
+<p>init-param设置的值可以通过以下语句获取<br>
+<code>String teamColor = getServletConfig().getInitParameter(&quot;teamColor&quot;);</code></p>
+
+<h4>jsp-file</h4>
+
+<p>直接映射URL到jsp文件（servlet-class是映射到servlet类）<br>
+例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;servlet&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>register<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;jsp-file&gt;</span>/register/start.jsp<span class="nt">&lt;/jsp-file&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+
+<span class="nt">&lt;servlet-mapping&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>register<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/register/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></div>
+<h4>load-on-startup</h4>
+
+<p>应用启动时该servlet的加载顺序，值越小加载顺序越靠前</p>
+
+<p>访问<code>/register/*</code>直接转到<code>/register/start.jsp</code>处理</p>
+
+<h3>关于taglib</h3>
+
+<p>jsp2.0之后不需要显示声明taglib，它会自动搜寻，搜寻目录： </p>
+
+<ul>
+<li><code>&lt;appName&gt;/WEB-INF</code>及其子目录</li>
+<li>jar包下的<code>META-INF</code>目录</li>
+</ul>
+
+<h3>context-param</h3>
+
+<p>顶层标签，和<code>init-param</code>类似，不过<code>context-param</code>作用域为整个web项目，而<code>init-param</code>只作用在它所在的servlet。<br>
+例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;context-param&gt;</span> 
+    <span class="nt">&lt;description&gt;</span>The email address of the administrator, used to send error reports.<span class="nt">&lt;/description&gt;</span> 
+    <span class="nt">&lt;param-name&gt;</span>webmaster<span class="nt">&lt;/param-name&gt;</span> 
+    <span class="nt">&lt;param-value&gt;</span>address@somedomain.com<span class="nt">&lt;/param-value&gt;</span> 
+<span class="nt">&lt;/context-param&gt;</span> 
+</code></pre></div>
+<p>通过以下语句可以获取值：<br>
+<code>String value = getServletContext().getInitParameter(&quot;webmaster&quot;);</code></p>
+
+<h3>env-entry</h3>
+
+<p>配置JNDI的访问资源，例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;env-entry&gt;</span> 
+    <span class="nt">&lt;env-entry-name&gt;</span>webmasterEmail<span class="nt">&lt;/env-entry-name&gt;</span> 
+    <span class="nt">&lt;env-entry-type&gt;</span>java.lang.String<span class="nt">&lt;/env-entry-type&gt;</span> 
+    <span class="nt">&lt;env-entry-value&gt;</span>admin@domain.com<span class="nt">&lt;/env-entry-value&gt;</span> 
+<span class="nt">&lt;/env-entry&gt;</span>
+</code></pre></div>
+<p>取值：  </p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="c1">// 获取JNDI上下文</span>
+<span class="n">Context</span> <span class="n">env</span> <span class="o">=</span> <span class="o">(</span><span class="n">Context</span><span class="o">)</span><span class="k">new</span> <span class="nf">InitialContext</span><span class="o">().</span><span class="na">lookup</span><span class="o">(</span><span class="s">&quot;java:comp/env&quot;</span><span class="o">);</span>
+
+<span class="c1">// 获取配置文件的值</span>
+<span class="n">String</span> <span class="n">webmasterEmail</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">env</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&quot;webmasterEmail&quot;</span><span class="o">);</span>
+</code></pre></div>
+<h3>filter</h3>
+
+<p>顶层标签， 简单来说serlvet中的filter就是一个中间件的作用，它不是用于处理请求和响应，而是用来过滤的，如果设置了filter，那么该请求和响应之前都要先通过filter。它的主要作用一般是权限控制、编码转换、请求响应头修改等。  例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;filter&gt;</span>
+  <span class="nt">&lt;filter-name&gt;</span>Set Character Encoding<span class="nt">&lt;/filter-name&gt;</span>
+  <span class="nt">&lt;filter-class&gt;</span>filters.SetCharacterEncodingFilter<span class="nt">&lt;/filter-class&gt;</span>
+  <span class="nt">&lt;init-param&gt;</span>
+    <span class="nt">&lt;param-name&gt;</span>encoding<span class="nt">&lt;/param-name&gt;</span>
+    <span class="nt">&lt;param-value&gt;</span>EUC_JP<span class="nt">&lt;/param-value&gt;</span>
+  <span class="nt">&lt;/init-param&gt;</span>
+<span class="nt">&lt;/filter&gt;</span>
+<span class="nt">&lt;filter-mapping&gt;</span>
+  <span class="nt">&lt;filter-name&gt;</span>Set Character Encoding<span class="nt">&lt;/filter-name&gt;</span>
+  <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/filter-mapping&gt;</span> 
+</code></pre></div>
+<p>给每个页面加上编码处理，通过filters.SetCharacterEncodingFilter这个java类实现  </p>
+
+<h3>listener</h3>
+
+<p>顶层标签，用于定义Listener，jsp的Listener主要用来监听各种特定事件，比如监听session的销毁和创建，例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;listener&gt;</span>
+  <span class="nt">&lt;listener-class&gt;</span>com.metawerx.listener.ContextListener<span class="nt">&lt;/listener-class&gt;</span>
+<span class="nt">&lt;/listener&gt;</span>
+<span class="nt">&lt;listener&gt;</span>
+  <span class="nt">&lt;listener-class&gt;</span>com.metawerx.listener.SessionListener<span class="nt">&lt;/listener-class&gt;</span>
+<span class="nt">&lt;/listener&gt;</span> 
+</code></pre></div>
+<h3>安全管理</h3>
+
+<p><code>security-role</code>、<code>security-constraint</code>和<code>login-config</code>标签，可以不通过编程限制某个资源的访问权限和强制SSL，</p>
+
+<h3>error-page</h3>
+
+<p>页面出错跳转页面， 例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 页面404时跳转 --&gt;</span>
+<span class="nt">&lt;error-page&gt;</span>
+  <span class="nt">&lt;error-code&gt;</span>404<span class="nt">&lt;/error-code&gt;</span>
+  <span class="nt">&lt;location&gt;</span>/error404.jsp<span class="nt">&lt;/location&gt;</span>
+<span class="nt">&lt;/error-page&gt;</span>
+
+<span class="c">&lt;!-- 根据错误类型跳转到不同页面，Throwable为所有错误 --&gt;</span>
+<span class="nt">&lt;error-page&gt;</span>
+  <span class="nt">&lt;exception-type&gt;</span>java.lang.Throwable<span class="nt">&lt;/exception-type&gt;</span>
+  <span class="nt">&lt;location&gt;</span>/errorThrowable.jsp<span class="nt">&lt;/location&gt;</span>
+<span class="nt">&lt;/error-page&gt;</span> 
+</code></pre></div>
+<h3>mime-mapping</h3>
+
+<p>资源扩展名和mine-type的映射关系，访问一个应用未知扩展名文件的时候，一般应用会默认使用纯文本（即<code>text/plain</code>）的方式打开，如果想要改成下载，就要改变mine-type映射关系，例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;mime-mapping&gt;</span> 
+    <span class="nt">&lt;extension&gt;</span>pqz<span class="nt">&lt;/extension&gt;</span>
+    <span class="nt">&lt;mime-type&gt;</span>application/octet-stream<span class="nt">&lt;/mime-type&gt;</span> 
+<span class="nt">&lt;/mime-mapping&gt;</span>
+</code></pre></div>
+<p><a href="http://tool.oschina.net/commons">mine-type对照表</a></p>
+
+<h3>welcome-file-list</h3>
+
+<p>访问目录根目录时默认访问的文件，比如访问<code>http://localhost/</code>自动到<code>http://localhost/index.jsp</code>，例：  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;welcome-file-list&gt;</span>
+  <span class="nt">&lt;welcome-file&gt;</span>index.html<span class="nt">&lt;/welcome-file&gt;</span>
+  <span class="nt">&lt;welcome-file&gt;</span>index.htm<span class="nt">&lt;/welcome-file&gt;</span>
+  <span class="nt">&lt;welcome-file&gt;</span>index.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+<span class="nt">&lt;/welcome-file-list&gt;</span> 
+</code></pre></div>
+<h2>参考资料</h2>
+
+<ul>
+<li><a href="http://wiki.metawerx.net/wiki/Web.xml">web.xml Reference Guide for Tomcat</a></li>
+</ul>
+
+    </div>
+
+  
+    <ul class="tag_box inline card">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#java-ref">
+    		java <span>1</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline card">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#java-ref">java <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination card clearfix">
+      <ul class = "pull-right">
+      
+        <li class="prev"><a href="/js/2014/06/16/js-firefox%E4%B8%8BinnerHTML%E5%92%8CtextContent%E7%9A%84%E6%95%88%E7%8E%87%E6%AF%94%E8%BE%83" title="Js Firefox下innerhtml和textcontent的效率比较">&larr; 前一篇</a></li>
+      
+        <li><a href="/archive.html">所有日志</a></li>
+      
+        <li class="next disabled"><a>后一篇 &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"myon"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer class="card">
+        <p>&copy; 2015 myon
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+<script src="/assets/jquery/dist/jquery.js"></script>
+<link href="/github-markdown-css/github-markdown.css" rel="stylesheet">
+
