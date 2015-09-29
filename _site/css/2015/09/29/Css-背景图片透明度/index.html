@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Github 解决github网页一直在加载的问题</title>
+    <title>Css 背景图片透明度</title>
     
     <meta name="author" content="myon">
 
@@ -100,7 +100,7 @@
         
 <!--
 <div class="page-header">
-  <h1>Github 解决github网页一直在加载的问题 </h1>
+  <h1>Css 背景图片透明度 </h1>
 </div>
 -->
 
@@ -110,44 +110,43 @@
        <div class = "clearfix">
         <div class="date_label">
           <div class="day_month">
-          03/24
+          09/29
           </div>
           <div class="year">
-          2014
+          2015
           </div>
         </div>
         <div class="post_title">
           <h2>
-            <a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98">Github 解决github网页一直在加载的问题</a>
+            <a href="/css/2015/09/29/Css-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E9%80%8F%E6%98%8E%E5%BA%A6">Css 背景图片透明度</a>
           </h2>
         </div>
       </div>
-      <h3>问题描述</h3>
-
-<p>github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host</p>
+      <p>css支持背景颜色的透明度（rbga形式），但是不支持背景图片的。不过通过css3的伪类元素，可以做个小hack实现。</p>
 
 <!--break-->
-
-<h3>解决方法</h3>
-
-<p>找到系统的hosts文件，添加下面的代码</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">192.30.252.128 github.com
-199.27.79.133 raw.github.com
-199.27.79.133 raw2.github.com
-192.30.252.141 gist.github.com
-199.27.79.133 identicons.github.com
-192.30.252.135 wiki.github.com
-54.235.185.69 help.github.com
-192.30.252.144 codeload.github.com
-199.27.73.184 github.global.ssl.fastly.net
-199.27.77.129 f.cloud.github.com
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">element</span><span class="nd">:after</span> <span class="p">{</span>
+  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">4</span><span class="p">;</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(images/background.jpg)</span><span class="p">;</span>
+  <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="m">100%</span> <span class="m">30%</span><span class="p">;</span>
+  <span class="k">background-attachment</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="o">:</span> <span class="m">-1</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>linux需重启下网络<code>/etc/init.d/networking restart</code><br>
-添加之后我这边秒开网页了</p>
-
-<h5>参考链接</h5>
-
-<p><a href="https://code.google.com/p/openerdns/issues/detail?id=7">Github 刷很久出不来</a></p>
+<p>原理：用<code>after</code>伪类添加一个大小相同的区块，设置背景，置于底层</p>
 
     </div>
 
@@ -160,8 +159,8 @@
 
   
      
-    	<li><a href="/categories.html#github-ref">
-    		github <span>1</span>
+    	<li><a href="/categories.html#css-ref">
+    		css <span>1</span>
     	</a></li>
     
   
@@ -179,9 +178,9 @@
 
   
      
-    	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
+    	<li><a href="/tags.html#css-ref">css <span>1</span></a></li>
      
-    	<li><a href="/tags.html#hosts-ref">hosts <span>1</span></a></li>
+    	<li><a href="/tags.html#background-ref">background <span>1</span></a></li>
     
   
 
@@ -194,11 +193,11 @@
     <div class="pagination card clearfix">
       <ul class = "pull-right">
       
-        <li class="prev"><a href="/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F" title="Linux Linux合并flv视频并转成mp3格式">&larr; 前一篇</a></li>
+        <li class="prev"><a href="/c++/2015/09/28/Qt-connect%E4%BC%A0%E9%80%92%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0" title="Qt Connect传递自定义类型参数">&larr; 前一篇</a></li>
       
         <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next"><a href="/js/2014/03/27/js-event%E5%B1%9E%E6%80%A7target%E5%92%8CcurrentTarget%E7%9A%84%E5%8C%BA%E5%88%AB" title="Js Event属性target和currenttarget的区别">后一篇 &rarr;</a></li>
+        <li class="next disabled"><a>后一篇 &rarr;</a>
       
       </ul>
     </div>

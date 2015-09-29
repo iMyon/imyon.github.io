@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Github 解决github网页一直在加载的问题</title>
+    <title>Qt Connect传递自定义类型参数</title>
     
     <meta name="author" content="myon">
 
@@ -100,7 +100,7 @@
         
 <!--
 <div class="page-header">
-  <h1>Github 解决github网页一直在加载的问题 </h1>
+  <h1>Qt Connect传递自定义类型参数 </h1>
 </div>
 -->
 
@@ -110,44 +110,46 @@
        <div class = "clearfix">
         <div class="date_label">
           <div class="day_month">
-          03/24
+          09/28
           </div>
           <div class="year">
-          2014
+          2015
           </div>
         </div>
         <div class="post_title">
           <h2>
-            <a href="/github/2014/03/24/github-%E8%A7%A3%E5%86%B3github%E7%BD%91%E9%A1%B5%E4%B8%80%E7%9B%B4%E5%9C%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98">Github 解决github网页一直在加载的问题</a>
+            <a href="/c++/2015/09/28/Qt-connect%E4%BC%A0%E9%80%92%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0">Qt Connect传递自定义类型参数</a>
           </h2>
         </div>
       </div>
-      <h3>问题描述</h3>
-
-<p>github网页加载不出来，刚google了下github一直在加载的网址，找到了可用的host</p>
+      <p>最近无聊写Qt程序玩，发现connect的clicked信号不能传递自定义类型的参数，虽然有其他不传参数的方案可以解决问题，但是绕圈子感觉不爽，于是乎折腾好久才解决问题。  </p>
 
 <!--break-->
 
-<h3>解决方法</h3>
+<p>简单来说用到了qt5的新特性和<code>c++11</code>的<code>lambda</code>匿名函数  </p>
 
-<p>找到系统的hosts文件，添加下面的代码</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">192.30.252.128 github.com
-199.27.79.133 raw.github.com
-199.27.79.133 raw2.github.com
-192.30.252.141 gist.github.com
-199.27.79.133 identicons.github.com
-192.30.252.135 wiki.github.com
-54.235.185.69 help.github.com
-192.30.252.144 codeload.github.com
-199.27.73.184 github.global.ssl.fastly.net
-199.27.77.129 f.cloud.github.com
+<p>Qt5的<code>connect</code>槽支持普通函数，而不是原来的只支持QObject，只能在<code>slots</code>定义  </p>
+
+<blockquote>
+<p>The new syntax can even connect to functions, not just QObjects:   </p>
+</blockquote>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">connect</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Sender</span><span class="o">::</span><span class="n">valueChanged</span><span class="p">,</span> <span class="n">someFunction</span><span class="p">);</span>
 </code></pre></div>
-<p>linux需重启下网络<code>/etc/init.d/networking restart</code><br>
-添加之后我这边秒开网页了</p>
+<p>上面的<code>someFunction</code>可以直接用lambda表达式代替，这样就可以通过lambda取上下文变量，变相传递自己想传的类型参数，实例如下：  </p>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">CustomClass</span> <span class="n">cc</span><span class="p">;</span> <span class="c1">//假设CustomClass是已经定义好了的类</span>
+<span class="c1">//在需要的地方使用connect连接</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sender</span><span class="o">::</span><span class="n">clicked</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="p">[</span><span class="n">cc</span><span class="p">]{</span>
+             <span class="n">showEditDialog</span><span class="p">(</span><span class="n">cc</span><span class="p">);</span>
+         <span class="p">});</span>
+</code></pre></div>
+<p>以上代码使用值传递方式将<code>CustomClass</code>类型的参数传递给showEditDialog函数，达到目的。<br>
+lambda表达式更多的用法：<a href="https://msdn.microsoft.com/en-us/library/dd293608.aspx">Lambda Expressions in C++</a>  </p>
 
-<h5>参考链接</h5>
+<h3>参考资料</h3>
 
-<p><a href="https://code.google.com/p/openerdns/issues/detail?id=7">Github 刷很久出不来</a></p>
+<ul>
+<li><a href="https://wiki.qt.io/New_Signal_Slot_Syntax">New Signal Slot Syntax in Qt 5</a></li>
+</ul>
 
     </div>
 
@@ -160,8 +162,8 @@
 
   
      
-    	<li><a href="/categories.html#github-ref">
-    		github <span>1</span>
+    	<li><a href="/categories.html#c++-ref">
+    		c++ <span>1</span>
     	</a></li>
     
   
@@ -179,9 +181,11 @@
 
   
      
-    	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
+    	<li><a href="/tags.html#Qt-ref">Qt <span>1</span></a></li>
      
-    	<li><a href="/tags.html#hosts-ref">hosts <span>1</span></a></li>
+    	<li><a href="/tags.html#c++-ref">c++ <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#lambda-ref">lambda <span>1</span></a></li>
     
   
 
@@ -194,11 +198,11 @@
     <div class="pagination card clearfix">
       <ul class = "pull-right">
       
-        <li class="prev"><a href="/linux/2014/01/24/linux-linux%E5%90%88%E5%B9%B6flv%E8%A7%86%E9%A2%91%E5%B9%B6%E8%BD%AC%E6%88%90mp3%E6%A0%BC%E5%BC%8F" title="Linux Linux合并flv视频并转成mp3格式">&larr; 前一篇</a></li>
+        <li class="prev"><a href="/java/2015/09/17/java-Java%20web%E4%B9%8Bweb.xml" title="Java Java web之web.xml">&larr; 前一篇</a></li>
       
         <li><a href="/archive.html">所有日志</a></li>
       
-        <li class="next"><a href="/js/2014/03/27/js-event%E5%B1%9E%E6%80%A7target%E5%92%8CcurrentTarget%E7%9A%84%E5%8C%BA%E5%88%AB" title="Js Event属性target和currenttarget的区别">后一篇 &rarr;</a></li>
+        <li class="next"><a href="/css/2015/09/29/Css-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E9%80%8F%E6%98%8E%E5%BA%A6" title="Css 背景图片透明度">后一篇 &rarr;</a></li>
       
       </ul>
     </div>
